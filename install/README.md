@@ -12,9 +12,9 @@ Import TWX do IBM BPM
 
 Business Process aplikácia pozostáva z:
 1. Toolkit-u "DEUS - Rozhrania"
-   - DEUS_-_Rozhrania - <verzia>.twx
+   - "DEUS_-_Rozhrania - verzia.twx"
 2. aplikácie "DEUS - Elektronická úverová žiadosť"
-   - DEUS_-_Elektronická_úverová_žiadosť - <verzia>.twx
+   - "DEUS_-_Elektronická_úverová_žiadosť - verzia.twx"
 
 Uvedené exporty sú umiestnené v adresári exports.
 
@@ -42,19 +42,19 @@ Toolkit obsahuje komponenty pre technické napojenie sa na externé a interné s
 
 ### Definovanie endpointov:
 
-_deus.app.rest.endpoint_
+__deus.app.rest.endpoint__
 
 Webová aplikácia DEUS poskytuje REST služby na adrese napr. http://wastest:9080/deus-services/api/ .
 Overenie funkčnosti v prehliadači http://wastest:9080/deus-services/api/application/{ECU}
 
-_ibs.rest.ecu.endpoint_
+__ibs.rest.ecu.endpoint__
 
 Rezervácia resp. uvoľnenie EČU je realizované prostredníctvom REST služby v systéme IBS na adrese napr. http://wastest:9080/ecuws/rest/ecu/ .
 Overenie funkčnosti v prehliadači http://wastest:9080/ecuws/swagger-ui.html
 
-_ibm.api.rest.savedQuery.endpoint_
+__ibm.api.rest.savedQuery.endpoint__
 a
-_ibm.api.rest.taskData.endpoint_
+__ibm.api.rest.taskData.endpoint__
 
 Interné REST API od IBM pre prístup UserTask-om môže byť odkazovaná cez localhost
 http://localhost:9081/rest/bpm/wle/v1/tasks/query/
@@ -62,7 +62,7 @@ a
 http://localhost:9081/rest/bpm/wle/v1/service/
 alebo cez LB, pričom je potrebné zabezpečiť konektivitu (sám na seba cez LB).
 
-_ibm.api.rest.securityAlias_
+__ibm.api.rest.securityAlias__
 
 Pre prístup k IBM REST API je potrebné použíť autentikovaný pristup prostredníctvom J2C auth (IBM WAS Admin Console: Global security > JAAS - J2C authentication data). Uvedené konto musí mať admin prístup k BPM REST API.
 Odporúčame ponechať tento konfiguračný kľúč na hodnote DeAdminAlias.
@@ -71,7 +71,7 @@ Odporúčame ponechať tento konfiguračný kľúč na hodnote DeAdminAlias.
 
 Prístup ku košom úloh pre jednotlivé role, používateľov a k EČU sa v aplikácií využívajú tzv. Saved Search Queries (viď. Saved Search Admin v IBM BPM Process Admin Console).
 
-_deus.api.savedQuery.*_
+__deus.api.savedQuery.*__
 
 Názvy jednotlivých Saved Search Queries začínajú reťazcom _DEUSAPP.UTB._ , aby boli oddelené od ostatných, ktoré možno používajú iné aplikácie alebo správcovia. (Upozornenie: V IBM BPM verzii nižšej ako 8.5.5 je chyba, kedy jednotlivé Saved Search Queries si môžu prepisovať)
 Saved Search Queries:
@@ -93,7 +93,7 @@ Vytvorenie Saved Search Queries
 Pre vytvorenie jednotlivých Saved Search Queries je potrebné použiť aplikáciu SOAPui (https://www.soapui.org/). V adresári scripts sa nachádza SOAPui projekt _DEUS-BPM-REST-Search-API-soapui-project.xml_, ktorý je potrebné Importnúť do SOAPui.
 
 Tento projekt má nadefinované a je potrebné nastaviť:
-   - Project properties: _deusapp.username_ a _deusapp.passwd_ ako auth pre IBM BPM REST služby
+   - Project properties: __deusapp.username__ a __deusapp.passwd__ ako auth pre IBM BPM REST služby
    - Service Endpoints: hostname a port IBM BPM servera
    - REST volania: sa nachádzajú v podstrome query/PUT
 
