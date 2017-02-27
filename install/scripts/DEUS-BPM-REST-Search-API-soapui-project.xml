@@ -3,10 +3,10 @@
   <con:entry key="shared" value="true"/>
   <con:entry key="organization" value="byTask"/>
   <con:entry key="sort" value="taskPriority"/>
-  <con:entry key="condition" value="assignedToRole|Evidovatelia#bpdName|Vytvorenie elektronickej úverovej žiadosti#instanceStatus|Active#taskStatus|Received"/>
+  <con:entry key="condition" value="assignedToRole|Contains|Evidovatelia#bpdName|Vytvorenie elektronickej úverovej žiadosti#instanceStatus|Active#taskStatus|Received"/>
   <con:entry key="columns" value="DEUS_ECU,DEUS_STATUS,DEUS_LABEL,taskActivityName,taskStatus,taskPriority,assignedToRole,assignedToUser,taskReceivedDate,taskDueDate,taskClosedDate"/>
-  <con:entry key="secondSort" value="taskReceivedDate"/>
   <con:entry key="saveAsName" value="DEUSAPP.UTB.Evidovatelia"/>
+  <con:entry key="secondSort" value="taskReceivedDate"/>
   <con:entry key="filterByCurrentUser" value="false"/>
   <con:entry key="offset" value=""/>
   <con:entry key="size" value=""/>
@@ -14,10 +14,10 @@
   <con:entry key="shared" value="true"/>
   <con:entry key="organization" value="byTask"/>
   <con:entry key="sort" value="taskPriority"/>
-  <con:entry key="condition" value="assignedToRole|Schvalovatelia#bpdName|Vytvorenie elektronickej úverovej žiadosti#instanceStatus|Active#taskStatus|Received"/>
+  <con:entry key="condition" value="assignedToRole|Contains|Schvalovatelia#bpdName|Vytvorenie elektronickej úverovej žiadosti#instanceStatus|Active#taskStatus|Received"/>
   <con:entry key="columns" value="DEUS_ECU,DEUS_STATUS,DEUS_LABEL,taskActivityName,taskStatus,taskPriority,assignedToRole,assignedToUser,taskReceivedDate,taskDueDate,taskClosedDate"/>
-  <con:entry key="saveAsName" value="DEUSAPP.UTB.Schvalovatelia"/>
   <con:entry key="secondSort" value="taskReceivedDate"/>
+  <con:entry key="saveAsName" value="DEUSAPP.UTB.Schvalovatelia"/>
   <con:entry key="filterByCurrentUser" value="false"/>
   <con:entry key="offset" value=""/>
   <con:entry key="size" value=""/>
@@ -25,10 +25,10 @@
   <con:entry key="shared" value="true"/>
   <con:entry key="organization" value="byTask"/>
   <con:entry key="sort" value="taskPriority"/>
-  <con:entry key="condition" value="assignedToRole|Obchodnici#bpdName|Vytvorenie elektronickej úverovej žiadosti#instanceStatus|Active#taskStatus|Received"/>
+  <con:entry key="condition" value="assignedToRole|Contains|Obchodnici#bpdName|Vytvorenie elektronickej úverovej žiadosti#instanceStatus|Active#taskStatus|Received"/>
   <con:entry key="columns" value="DEUS_ECU,DEUS_STATUS,DEUS_LABEL,taskActivityName,taskStatus,taskPriority,assignedToRole,assignedToUser,taskReceivedDate,taskDueDate,taskClosedDate"/>
-  <con:entry key="secondSort" value="taskReceivedDate"/>
   <con:entry key="saveAsName" value="DEUSAPP.UTB.Obchodnici"/>
+  <con:entry key="secondSort" value="taskReceivedDate"/>
   <con:entry key="filterByCurrentUser" value="false"/>
   <con:entry key="offset" value=""/>
   <con:entry key="size" value=""/>
