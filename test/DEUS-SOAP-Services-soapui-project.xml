@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="c729bb90-7b03-433c-b0ab-6825b5b798cb" activeEnvironment="Default" name="DEUS-SOAP-Services" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="0a2a432e-6b35-4176-9ccd-ba1af6bc94ab" wsaVersion="NONE" name="DeusProcessWebServiceSoapSoapBinding" type="wsdl" bindingName="{http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService}DeusProcessWebServiceSoapSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://extsoftec6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://extsoftec6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws?WSDL"><con:part><con:url>http://extsoftec6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService" xmlns:impl="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService" xmlns:impl1="http://xmlns.pss.sk/bpm/deus/api/v1/common" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:intf="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://xmlns.pss.sk/bpm/deus/api/v1/common"/>
+      <element name="start">
+        <complexType>
+          <sequence>
+            <element name="ecu" type="xsd:string"/>
+            <element name="username" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="startResponse">
+        <complexType/>
+      </element>
+      <element name="completeActivity">
+        <complexType>
+          <sequence>
+            <element name="ecu" type="xsd:string"/>
+            <element name="username" type="xsd:string"/>
+            <element name="result" type="xsd:string"/>
+            <element name="data" type="impl1:ValueMap"/>
+            <element name="comment" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="completeActivityResponse">
+        <complexType/>
+      </element>
+    </schema>
+    <schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.pss.sk/bpm/deus/api/v1/common" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService">
+        <!--Add URI of the schema document for the imported namespace using 'schemaLocation' attribute.-->
+      </import>
+      <complexType name="KeyValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="key" nillable="false" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="value" nillable="false" type="xsd:string"/>
+        </sequence>
+        <attribute name="type" type="xsd:string"/>
+      </complexType>
+      <complexType name="ValueMap">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="false" type="impl1:KeyValue"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_KeyValue">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="impl1:KeyValue"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_string">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="xsd:string"/>
+        </sequence>
+      </complexType>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="completeActivityRequest">
+    <wsdl:part name="parameters" element="impl:completeActivity"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="completeActivityResponse">
+    <wsdl:part name="parameters" element="impl:completeActivityResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="startResponse">
+    <wsdl:part name="parameters" element="impl:startResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="startRequest">
+    <wsdl:part name="parameters" element="impl:start"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="DeusProcessWebServicePortType">
+    <wsdl:operation name="start">
+      <wsdl:input name="startRequest" message="impl:startRequest"></wsdl:input>
+      <wsdl:output name="startResponse" message="impl:startResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="completeActivity">
+      <wsdl:input name="completeActivityRequest" message="impl:completeActivityRequest"></wsdl:input>
+      <wsdl:output name="completeActivityResponse" message="impl:completeActivityResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DeusProcessWebServiceSoapSoapBinding" type="impl:DeusProcessWebServicePortType">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="start">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/start"/>
+      <wsdl:input name="startRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="startResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="completeActivity">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/completeActivity"/>
+      <wsdl:input name="completeActivityRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="completeActivityResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DeusProcessWebService">
+    <wsdl:port name="DeusProcessWebServiceSoap" binding="impl:DeusProcessWebServiceSoapSoapBinding">
+      <wsdlsoap:address location="http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws</con:endpoint></con:endpoints><con:operation id="d9d3ba75-569f-4eab-8f9c-de4202bbc635" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/start" name="start" bindingOperationName="start" type="Request-Response" outputName="startResponse" inputName="startRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="40ba4cd0-d918-4c7d-ae6a-24f345a3b4e7" name="with random ECU"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:deus="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <deus:start>\r
+         <deus:ecu>${=String.valueOf(Math.random()).substring(2,10)}</deus:ecu>\r
+         <deus:username>1008598</deus:username>\r
+      </deus:start>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/start"/><con:wsrmConfig version="1.2"/></con:call><con:call id="764614cc-e205-4c24-8f84-f4b4bd2d8a23" name="random ECU [uid=1062078]"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:deus="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <deus:start>\r
+         <deus:ecu>${=String.valueOf(Math.random()).substring(2,10)}</deus:ecu>\r
+         <deus:username>1062078</deus:username>\r
+      </deus:start>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/start"/><con:wsrmConfig version="1.2"/></con:call><con:call id="61e7fd22-acf8-49b0-acbb-6430551ab2ba" name="ecu: 960351501 username: 280245"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:deus="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <deus:start>\r
+         <deus:ecu>960351501</deus:ecu>\r
+         <deus:username>280245</deus:username>\r
+      </deus:start>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/start"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="84136703-bb0e-46ad-a737-389fd911764c" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/completeActivity" name="completeActivity" bindingOperationName="completeActivity" type="Request-Response" outputName="completeActivityResponse" inputName="completeActivityRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="35c47ece-8e1e-4bd7-bd1b-a2de4689585a" name="Odoslat na spracovanie"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:deus="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <deus:completeActivity>\r
+         <deus:ecu>1002</deus:ecu>\r
+         <deus:username>1008598</deus:username>\r
+         <deus:result>ODOSLANY</deus:result>\r
+         <deus:comment>Test</deus:comment>\r
+      </deus:completeActivity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/completeActivity"/><con:wsrmConfig version="1.2"/></con:call><con:call id="1ae22bd2-e42b-4546-8a11-da45623a17c8" name="Spracovany"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:deus="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <deus:completeActivity>\r
+         <deus:ecu>1122334455</deus:ecu>\r
+         <deus:username>evidovatel1</deus:username>\r
+         <deus:result>ODOSLANY</deus:result>\r
+         <deus:comment>Vsetko zaevidovane</deus:comment>\r
+      </deus:completeActivity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/completeActivity"/><con:wsrmConfig version="1.2"/></con:call><con:call id="4be533fe-07bd-4a46-9545-862a5a92b3d5" name="Schvaleny"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:deus="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <deus:completeActivity>\r
+         <deus:ecu>960351501</deus:ecu>\r
+         <deus:username>1127054</deus:username>\r
+         <deus:result>SCHVALENY</deus:result>\r
+         <deus:comment>je to OK</deus:comment>\r
+      </deus:completeActivity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/completeActivity"/><con:wsrmConfig version="1.2"/></con:call><con:call id="e22d8f42-e991-41d9-a4eb-b9965793238f" name="Stornovany"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:deus="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <deus:completeActivity>\r
+         <deus:ecu>1122334455</deus:ecu>\r
+         <deus:username>schvalovatel1</deus:username>\r
+         <deus:result>STORNOVANY</deus:result>\r
+         <deus:comment>zrusil klient</deus:comment>\r
+      </deus:completeActivity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/completeActivity"/><con:wsrmConfig version="1.2"/></con:call><con:call id="5ee03cce-5b2e-427b-801d-d93e46d9bb20" name="Vrateny obchodnikovi"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:deus="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <deus:completeActivity>\r
+         <deus:ecu>1122334455</deus:ecu>\r
+         <deus:username>spoljovka</deus:username>\r
+         <deus:result>NEDOSTATKOVY</deus:result>\r
+         <deus:comment>Test</deus:comment>\r
+      </deus:completeActivity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/completeActivity"/><con:wsrmConfig version="1.2"/></con:call><con:call id="0538e5e4-103e-400f-8994-675a27c163c2" name="Zamietnuty"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:deus="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <deus:completeActivity>\r
+         <deus:ecu>1122334455</deus:ecu>\r
+         <deus:username>schvalovatel1</deus:username>\r
+         <deus:result>ZAMIETNUTY</deus:result>\r
+         <deus:comment>nedostatocny kredit</deus:comment>\r
+      </deus:completeActivity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/completeActivity"/><con:wsrmConfig version="1.2"/></con:call><con:call id="14947c0d-2845-40c3-b1a9-b312530fb782" name="Vyziadana spolupraca"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:deus="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <deus:completeActivity>\r
+         <deus:ecu>1122334455</deus:ecu>\r
+         <deus:username>schvalovatel1</deus:username>\r
+         <deus:result>VYZIADANA_SPOLUPRACA</deus:result>\r
+         <deus:comment>nedostatocny kredit</deus:comment>\r
+      </deus:completeActivity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/completeActivity"/><con:wsrmConfig version="1.2"/></con:call><con:call id="c6f56f6f-6505-4ecb-8978-bb4d73ee4790" name="Vyziadana spolupraca - ukoncenie"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:deus="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <deus:completeActivity>\r
+         <deus:ecu>1122334455</deus:ecu>\r
+         <deus:username>auditor</deus:username>\r
+         <deus:result>ODOSLANY</deus:result>\r
+         <deus:comment>urob toto ...</deus:comment>\r
+      </deus:completeActivity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/completeActivity"/><con:wsrmConfig version="1.2"/></con:call><con:call id="0b5bc1bc-96bc-40e7-a6e9-5886fb9ab222" name="Odoslat na spracovanie [ecu:960351501, vo:280245]"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:deus="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <deus:completeActivity>\r
+         <deus:ecu>960351501</deus:ecu>\r
+         <deus:username>280245</deus:username>\r
+         <deus:result>ODOSLANY</deus:result>\r
+         <deus:comment>Test</deus:comment>\r
+      </deus:completeActivity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/completeActivity"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="c97908a0-f1db-45de-bee5-5cce8bf4c095" wsaVersion="NONE" name="UserTaskBasketWebServiceSoapSoapBinding" type="wsdl" bindingName="{http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws}UserTaskBasketWebServiceSoapSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://extsoftec6.pss.local:9081/teamworks/webservices/DEUSAPI/UserTaskBasketWebService.tws?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://extsoftec6.pss.local:9081/teamworks/webservices/DEUSAPI/UserTaskBasketWebService.tws?WSDL"><con:part><con:url>http://extsoftec6.pss.local:9081/teamworks/webservices/DEUSAPI/UserTaskBasketWebService.tws?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws" xmlns:impl="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws" xmlns:impl1="http://xmlns.pss.sk/bpm/deus/api/v1/UserTask" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:intf="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://xmlns.pss.sk/bpm/deus/api/v1/UserTask"/>
+      <element name="getPersonalUserTaskBasket">
+        <complexType>
+          <sequence>
+            <element name="username" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getPersonalUserTaskBasketResponse">
+        <complexType>
+          <sequence>
+            <element name="basket" type="impl1:UserTaskBasket"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getGroupsUserTaskBasket">
+        <complexType>
+          <sequence>
+            <element name="role" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getGroupsUserTaskBasketResponse">
+        <complexType>
+          <sequence>
+            <element name="basket" type="impl1:UserTaskBasket"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getUserTask">
+        <complexType>
+          <sequence>
+            <element name="ecu" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getUserTaskResponse">
+        <complexType>
+          <sequence>
+            <element name="task" type="impl1:UserTask"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="takeUserTask">
+        <complexType>
+          <sequence>
+            <element name="ecu" type="xsd:string"/>
+            <element name="username" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="takeUserTaskResponse">
+        <complexType>
+          <sequence>
+            <element name="task" type="impl1:UserTask"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="assignUserTask">
+        <complexType>
+          <sequence>
+            <element name="ecu" type="xsd:string"/>
+            <element name="username" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="assignUserTaskResponse">
+        <complexType>
+          <sequence>
+            <element name="task" type="impl1:UserTask"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="findUserTasks">
+        <complexType>
+          <sequence>
+            <element name="ecu" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="findUserTasksResponse">
+        <complexType>
+          <sequence>
+            <element name="basket" type="impl1:UserTaskBasket"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="releaseUserTask">
+        <complexType>
+          <sequence>
+            <element name="ecu" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="releaseUserTaskResponse">
+        <complexType>
+          <sequence>
+            <element name="task" type="impl1:UserTask"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+    <schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.pss.sk/bpm/deus/api/v1/UserTask" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:impl2="http://xmlns.pss.sk/bpm/deus/api/v1/common">
+      <import namespace="http://xmlns.pss.sk/bpm/deus/api/v1/common">
+        <!--Add URI of the schema document for the imported namespace using 'schemaLocation' attribute.-->
+      </import>
+      <import namespace="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws">
+        <!--Add URI of the schema document for the imported namespace using 'schemaLocation' attribute.-->
+      </import>
+      <complexType name="UserTask">
+        <sequence>
+          <element form="unqualified" maxOccurs="1" minOccurs="0" name="id" nillable="false" type="xsd:string"/>
+          <element form="unqualified" maxOccurs="1" minOccurs="0" name="name" nillable="false" type="xsd:string"/>
+          <element form="unqualified" maxOccurs="1" minOccurs="0" name="ecu" nillable="false" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="status" nillable="false" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="priority" nillable="false" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="label" nillable="false" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="assignedType" nillable="false" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="assignedTo" nillable="false" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="startDate" nillable="false" type="xsd:dateTime"/>
+          <element maxOccurs="1" minOccurs="0" name="dueDate" nillable="false" type="xsd:dateTime"/>
+          <element maxOccurs="1" minOccurs="0" name="finishDate" nillable="false" type="xsd:dateTime"/>
+          <element maxOccurs="1" minOccurs="0" name="custom" nillable="false" type="impl2:ValueMap"/>
+        </sequence>
+      </complexType>
+      <complexType name="UserTaskBasket">
+        <sequence>
+          <element form="unqualified" maxOccurs="1" minOccurs="0" name="tasks" nillable="false" type="impl1:UserTasks"/>
+          <element maxOccurs="1" minOccurs="0" name="startIndex" nillable="false" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="0" name="count" nillable="false" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="0" name="total" nillable="false" type="xsd:int"/>
+        </sequence>
+        <attribute name="assignedTo" type="xsd:string"/>
+        <attribute name="assignationType" type="xsd:string"/>
+      </complexType>
+      <complexType name="UserTasks">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="task" nillable="false" type="impl1:UserTask"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_UserTask">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="impl1:UserTask"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_string">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_dateTime">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="xsd:dateTime"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_ValueMap">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="impl2:ValueMap"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_KeyValue">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="impl2:KeyValue"/>
+        </sequence>
+      </complexType>
+    </schema>
+    <schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.pss.sk/bpm/deus/api/v1/common" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:impl2="http://xmlns.pss.sk/bpm/deus/api/v1/common">
+      <import namespace="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws">
+        <!--Add URI of the schema document for the imported namespace using 'schemaLocation' attribute.-->
+      </import>
+      <import namespace="http://xmlns.pss.sk/bpm/deus/api/v1/UserTask">
+        <!--Add URI of the schema document for the imported namespace using 'schemaLocation' attribute.-->
+      </import>
+      <complexType name="KeyValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="value" nillable="false" type="xsd:string"/>
+        </sequence>
+        <attribute form="qualified" name="key" type="xsd:string"/>
+        <attribute name="type" type="xsd:string"/>
+      </complexType>
+      <complexType name="ValueMap">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="false" type="impl2:KeyValue"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_KeyValue">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="impl2:KeyValue"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_string">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="xsd:string"/>
+        </sequence>
+      </complexType>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="getPersonalUserTaskBasketResponse">
+    <wsdl:part name="parameters" element="impl:getPersonalUserTaskBasketResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="assignUserTaskResponse">
+    <wsdl:part name="parameters" element="impl:assignUserTaskResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPersonalUserTaskBasketRequest">
+    <wsdl:part name="parameters" element="impl:getPersonalUserTaskBasket"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="takeUserTaskResponse">
+    <wsdl:part name="parameters" element="impl:takeUserTaskResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="releaseUserTaskRequest">
+    <wsdl:part name="parameters" element="impl:releaseUserTask"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findUserTasksRequest">
+    <wsdl:part name="parameters" element="impl:findUserTasks"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="releaseUserTaskResponse">
+    <wsdl:part name="parameters" element="impl:releaseUserTaskResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getGroupsUserTaskBasketRequest">
+    <wsdl:part name="parameters" element="impl:getGroupsUserTaskBasket"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="assignUserTaskRequest">
+    <wsdl:part name="parameters" element="impl:assignUserTask"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getGroupsUserTaskBasketResponse">
+    <wsdl:part name="parameters" element="impl:getGroupsUserTaskBasketResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="takeUserTaskRequest">
+    <wsdl:part name="parameters" element="impl:takeUserTask"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUserTaskRequest">
+    <wsdl:part name="parameters" element="impl:getUserTask"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUserTaskResponse">
+    <wsdl:part name="parameters" element="impl:getUserTaskResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findUserTasksResponse">
+    <wsdl:part name="parameters" element="impl:findUserTasksResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="UserTaskBasketWebServicePortType">
+    <wsdl:operation name="getPersonalUserTaskBasket">
+      <wsdl:input name="getPersonalUserTaskBasketRequest" message="impl:getPersonalUserTaskBasketRequest"></wsdl:input>
+      <wsdl:output name="getPersonalUserTaskBasketResponse" message="impl:getPersonalUserTaskBasketResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGroupsUserTaskBasket">
+      <wsdl:input name="getGroupsUserTaskBasketRequest" message="impl:getGroupsUserTaskBasketRequest"></wsdl:input>
+      <wsdl:output name="getGroupsUserTaskBasketResponse" message="impl:getGroupsUserTaskBasketResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserTask">
+      <wsdl:input name="getUserTaskRequest" message="impl:getUserTaskRequest"></wsdl:input>
+      <wsdl:output name="getUserTaskResponse" message="impl:getUserTaskResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="takeUserTask">
+      <wsdl:input name="takeUserTaskRequest" message="impl:takeUserTaskRequest"></wsdl:input>
+      <wsdl:output name="takeUserTaskResponse" message="impl:takeUserTaskResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignUserTask">
+      <wsdl:input name="assignUserTaskRequest" message="impl:assignUserTaskRequest"></wsdl:input>
+      <wsdl:output name="assignUserTaskResponse" message="impl:assignUserTaskResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findUserTasks">
+      <wsdl:input name="findUserTasksRequest" message="impl:findUserTasksRequest"></wsdl:input>
+      <wsdl:output name="findUserTasksResponse" message="impl:findUserTasksResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="releaseUserTask">
+      <wsdl:input name="releaseUserTaskRequest" message="impl:releaseUserTaskRequest"></wsdl:input>
+      <wsdl:output name="releaseUserTaskResponse" message="impl:releaseUserTaskResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UserTaskBasketWebServiceSoapSoapBinding" type="impl:UserTaskBasketWebServicePortType">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getPersonalUserTaskBasket">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws/getPersonalUserTaskBasket"/>
+      <wsdl:input name="getPersonalUserTaskBasketRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPersonalUserTaskBasketResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGroupsUserTaskBasket">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws/getGroupsUserTaskBasket"/>
+      <wsdl:input name="getGroupsUserTaskBasketRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getGroupsUserTaskBasketResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserTask">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws/getUserTask"/>
+      <wsdl:input name="getUserTaskRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUserTaskResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="takeUserTask">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws/takeUserTask"/>
+      <wsdl:input name="takeUserTaskRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="takeUserTaskResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignUserTask">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws/assignUserTask"/>
+      <wsdl:input name="assignUserTaskRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="assignUserTaskResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findUserTasks">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws/findUserTasks"/>
+      <wsdl:input name="findUserTasksRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findUserTasksResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="releaseUserTask">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws/releaseUserTask"/>
+      <wsdl:input name="releaseUserTaskRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="releaseUserTaskResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserTaskBasketWebService">
+    <wsdl:port name="UserTaskBasketWebServiceSoap" binding="impl:UserTaskBasketWebServiceSoapSoapBinding">
+      <wsdlsoap:address location="http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/UserTaskBasketWebService.tws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/UserTaskBasketWebService.tws</con:endpoint></con:endpoints><con:operation id="a5f77564-57a9-478f-9023-2c8899d06794" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws/assignUserTask" name="assignUserTask" bindingOperationName="assignUserTask" type="Request-Response" outputName="assignUserTaskResponse" inputName="assignUserTaskRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="12d41e71-077a-46d6-9018-6799a9eaef53" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/UserTaskBasketWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <user:assignUserTask>\r
+         <user:ecu>?</user:ecu>\r
+         <user:username>?</user:username>\r
+      </user:assignUserTask>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws/assignUserTask"/></con:call></con:operation><con:operation id="b21eda60-e5a4-46f6-b608-21dbb0d76b09" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws/findUserTasks" name="findUserTasks" bindingOperationName="findUserTasks" type="Request-Response" outputName="findUserTasksResponse" inputName="findUserTasksRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3bd42422-5807-43cc-ad81-366793d13d90" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/UserTaskBasketWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <user:findUserTasks>\r
+         <user:ecu>?</user:ecu>\r
+      </user:findUserTasks>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws/findUserTasks"/></con:call></con:operation><con:operation id="46f4272c-8957-4fcf-a115-686c36d75df2" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws/getGroupsUserTaskBasket" name="getGroupsUserTaskBasket" bindingOperationName="getGroupsUserTaskBasket" type="Request-Response" outputName="getGroupsUserTaskBasketResponse" inputName="getGroupsUserTaskBasketRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="76db33ba-da81-463f-8597-fa82d5453d78" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/UserTaskBasketWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <user:getGroupsUserTaskBasket>\r
+         <user:role>?</user:role>\r
+      </user:getGroupsUserTaskBasket>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws/getGroupsUserTaskBasket"/></con:call></con:operation><con:operation id="bb27f316-4331-4821-ba3f-41e8a52f4442" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws/getPersonalUserTaskBasket" name="getPersonalUserTaskBasket" bindingOperationName="getPersonalUserTaskBasket" type="Request-Response" outputName="getPersonalUserTaskBasketResponse" inputName="getPersonalUserTaskBasketRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e1043e61-a1e3-4f6e-8213-d1dcd13b7649" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/UserTaskBasketWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <user:getPersonalUserTaskBasket>\r
+         <user:username>?</user:username>\r
+      </user:getPersonalUserTaskBasket>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws/getPersonalUserTaskBasket"/></con:call></con:operation><con:operation id="e2cca7a5-58f1-415a-842c-b341565d5d70" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws/getUserTask" name="getUserTask" bindingOperationName="getUserTask" type="Request-Response" outputName="getUserTaskResponse" inputName="getUserTaskRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="fc4cf197-9f14-412a-aecb-96c9577e6501" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/UserTaskBasketWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <user:getUserTask>\r
+         <user:ecu>960351501</user:ecu>\r
+      </user:getUserTask>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws/getUserTask"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="acdc8c4e-6b17-4fe4-be8c-7444fc4a3040" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws/releaseUserTask" name="releaseUserTask" bindingOperationName="releaseUserTask" type="Request-Response" outputName="releaseUserTaskResponse" inputName="releaseUserTaskRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5394e762-c9fe-43b3-9a2e-ca7f9f8bba28" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/UserTaskBasketWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <user:releaseUserTask>\r
+         <user:ecu>?</user:ecu>\r
+      </user:releaseUserTask>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws/releaseUserTask"/></con:call></con:operation><con:operation id="f2afd2ae-722a-44e2-9dc8-2da9dc4379c1" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws/takeUserTask" name="takeUserTask" bindingOperationName="takeUserTask" type="Request-Response" outputName="takeUserTaskResponse" inputName="takeUserTaskRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="14d939eb-17cd-465b-82b9-2686059c944e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/UserTaskBasketWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <user:takeUserTask>\r
+         <user:ecu>?</user:ecu>\r
+         <user:username>?</user:username>\r
+      </user:takeUserTask>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws/takeUserTask"/></con:call></con:operation></con:interface><con:testSuite id="c56773e4-e41d-4cea-9e46-c2a62a7b7088" name="DeusProcess TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="6a19f874-7396-477f-8dad-ee3933ec3136" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Kladna vetva TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="cec26b6f-f893-486e-957f-75d2d38ab906" name="Start procesu"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DeusProcessWebServiceSoapSoapBinding</con:interface><con:operation>start</con:operation><con:request name="Start procesu" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="8036258e-4bc1-493c-9cf2-f3877171445b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:deus="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <deus:start>\r
+         <deus:ecu>${#TestCase#ecu}</deus:ecu>\r
+         <deus:username>spoljovka</deus:username>\r
+      </deus:start>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="2aac6bf7-8b7d-4bdc-9e4c-211e533fdc55" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/start"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="5a48756e-c7dc-470f-9bcc-969a98c2241b" name="Odoslat na spracovanie"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DeusProcessWebServiceSoapSoapBinding</con:interface><con:operation>completeActivity</con:operation><con:request name="Odoslat na spracovanie" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="90de3d12-41f0-4764-ac3b-c39082b71f07"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:deus="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <deus:completeActivity>\r
+         <deus:ecu>${#TestCase#ecu}</deus:ecu>\r
+         <deus:username>spoljovka</deus:username>\r
+         <deus:result>ODOSLANY</deus:result>\r
+         <deus:comment>Test</deus:comment>\r
+      </deus:completeActivity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="5718ff6d-cce8-4ab5-ade2-63fb161d572e" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/completeActivity"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="9403913f-993a-45ad-8c06-ac1f97e4c10e" name="Spracovany"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DeusProcessWebServiceSoapSoapBinding</con:interface><con:operation>completeActivity</con:operation><con:request name="Spracovany" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="adf65d8b-5098-462f-ba33-3e7dff97608a"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:deus="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <deus:completeActivity>\r
+         <deus:ecu>${#TestCase#ecu}</deus:ecu>\r
+         <deus:username>evidovatel1</deus:username>\r
+         <deus:result>ODOSLANY</deus:result>\r
+         <deus:comment>Test</deus:comment>\r
+      </deus:completeActivity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="9445785f-d747-4f89-9e88-d6bf228f6482" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/completeActivity"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="e9c7bb2d-403a-4c1f-809c-dd0adb0107b1" name="Schvaleny"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DeusProcessWebServiceSoapSoapBinding</con:interface><con:operation>completeActivity</con:operation><con:request name="Schvaleny" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="1e998761-c43b-40b4-a281-2de4f176b6c7"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:deus="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <deus:completeActivity>\r
+         <deus:ecu>${#TestCase#ecu}</deus:ecu>\r
+         <deus:username>schvalovatel1</deus:username>\r
+         <deus:result>SCHVALENY</deus:result>\r
+         <deus:comment>je to OK</deus:comment>\r
+      </deus:completeActivity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="0fe21856-78d0-4e94-9339-749d5a232d31" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/completeActivity"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>ecu</con:name><con:value>${=String.valueOf(Math.random()).substring(2,10)}</con:value></con:property></con:properties></con:testCase><con:testCase id="1833b4b9-efa7-4140-b2be-7b779e95e666" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase ecu:960351501, vo:280245" searchProperties="true"><con:settings/><con:testStep type="request" id="893e33b2-a563-4de5-a088-348d546d14ad" name="start procesu"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DeusProcessWebServiceSoapSoapBinding</con:interface><con:operation>start</con:operation><con:request name="start procesu" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="0cfc1e69-16b4-420c-91a4-60702dea74b8"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:deus="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <deus:start>\r
+         <deus:ecu>${#TestCase#ecu}</deus:ecu>\r
+         <deus:username>${#TestCase#obchodnik}</deus:username>\r
+      </deus:start>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="ad615445-3949-4d4c-8b52-05d51735c32c" name="SOAP Response"/><con:assertion type="SOAP Fault Assertion" id="f17ce8a2-6ffe-4c17-9f9e-031ea7c5a8c8" name="Not SOAP Fault"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/start"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="delay" name="wait after Start" id="eed9a307-d25c-4c9e-8dff-cdf7b59a1000"><con:settings/><con:config><delay>2000</delay></con:config></con:testStep><con:testStep type="request" id="d0fd86f8-c5e2-4c69-a789-747b2de89edb" name="Odoslat na spracovanie"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DeusProcessWebServiceSoapSoapBinding</con:interface><con:operation>completeActivity</con:operation><con:request name="Odoslat na spracovanie" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="138193c6-1604-425f-b969-ee6a49775724"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:deus="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <deus:completeActivity>\r
+         <deus:ecu>${#TestCase#ecu}</deus:ecu>\r
+         <deus:username>${#TestCase#obchodnik}</deus:username>\r
+         <deus:result>ODOSLANY</deus:result>\r
+         <deus:comment>Novy DEUS</deus:comment>\r
+      </deus:completeActivity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="55bad56c-673d-4fe2-a754-f628357973fb" name="SOAP Response"/><con:assertion type="SOAP Fault Assertion" id="abe926d1-51ee-418f-84c3-6abe12e12abc" name="Not SOAP Fault"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/completeActivity"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="delay" name="wait after Odoslany na spracovanie" id="23da47c1-947b-47ac-8266-aa68e1d3561d"><con:settings/><con:config><delay>2000</delay></con:config></con:testStep><con:testStep type="request" id="a21b08cf-2653-44ea-92fb-8dceb2d16f4b" name="Evidovatel prevezme"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>UserTaskBasketWebServiceSoapSoapBinding</con:interface><con:operation>takeUserTask</con:operation><con:request name="Evidovatel prevezme" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="d459ace5-a461-4854-8a5d-399500d1db8e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/UserTaskBasketWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <user:takeUserTask>\r
+         <user:ecu>${#TestCase#ecu}</user:ecu>\r
+         <user:username>${#TestCase#evidovatel}</user:username>\r
+      </user:takeUserTask>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="32121342-87ae-4d9c-a76f-de11652ef474" name="SOAP Response"/><con:assertion type="SOAP Fault Assertion" id="8810fc12-ffd4-41fe-96ed-2d46396b7ded" name="Not SOAP Fault"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws/takeUserTask"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="delay" name="wait after Prevzatie evidovatelom" id="b9e6c9ca-ad7a-4b3c-b6b2-7b2a25c848b4"><con:settings/><con:config><delay>2000</delay></con:config></con:testStep><con:testStep type="request" id="d404e0a7-2b4c-4cc4-a979-002e1a111dc5" name="Spracovany"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DeusProcessWebServiceSoapSoapBinding</con:interface><con:operation>completeActivity</con:operation><con:request name="Spracovany" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="b519d8b3-104c-453b-84b7-174df6ab2a4b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:deus="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <deus:completeActivity>\r
+         <deus:ecu>${#TestCase#ecu}</deus:ecu>\r
+         <deus:username>${#TestCase#evidovatel}</deus:username>\r
+         <deus:result>ODOSLANY</deus:result>\r
+         <deus:comment>Vsetko zaevidovane OK</deus:comment>\r
+      </deus:completeActivity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="fcc9bc44-1ea9-4b12-a508-9e55daff0b8b" name="SOAP Response"/><con:assertion type="SOAP Fault Assertion" id="9df9e6a2-7357-4cf3-a06c-0c6409fea014" name="Not SOAP Fault"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/completeActivity"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="delay" name="wait after Spracovany" id="216b6807-c8b5-4ab0-9825-4411f3a3b041"><con:settings/><con:config><delay>2000</delay></con:config></con:testStep><con:testStep type="request" id="e3c4fc25-908d-4ff0-bf5d-1a7938b06636" name="Schvalovatel prevezme"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>UserTaskBasketWebServiceSoapSoapBinding</con:interface><con:operation>takeUserTask</con:operation><con:request name="Schvalovatel prevezme" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="d459ace5-a461-4854-8a5d-399500d1db8e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/UserTaskBasketWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <user:takeUserTask>\r
+         <user:ecu>${#TestCase#ecu}</user:ecu>\r
+         <user:username>${#TestCase#schvalovatel}</user:username>\r
+      </user:takeUserTask>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="32121342-87ae-4d9c-a76f-de11652ef474" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/UserTaskBasketWebService.tws/takeUserTask"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="delay" name="wait after Prevzatie schvalovatelom" id="11c18d1b-35d0-411c-b050-2c4008882d6c"><con:settings/><con:config><delay>2000</delay></con:config></con:testStep><con:testStep type="request" id="3ed40b22-4d24-4851-9749-9d8d7d38e810" name="Schvaleny"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DeusProcessWebServiceSoapSoapBinding</con:interface><con:operation>completeActivity</con:operation><con:request name="Schvaleny" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="b02af3bd-84f6-40a9-87d0-26d380c0e046"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSAPI/DeusProcessWebService.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:deus="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <deus:completeActivity>\r
+         <deus:ecu>${#TestCase#ecu}</deus:ecu>\r
+         <deus:username>${#TestCase#schvalovatel}</deus:username>\r
+         <deus:result>SCHVALENY</deus:result>\r
+         <deus:comment>je to OK</deus:comment>\r
+      </deus:completeActivity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="1a8cb0da-268c-4621-b2fc-92f13c454710" name="SOAP Response"/><con:assertion type="SOAP Fault Assertion" id="21f06755-795a-462f-a792-b22d16cb8dfc" name="Not SOAP Fault"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/DeusProcessWebService/completeActivity"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>ecu</con:name><con:value>960351501</con:value></con:property><con:property><con:name>obchodnik</con:name><con:value>280245</con:value></con:property><con:property><con:name>evidovatel</con:name><con:value>1062078</con:value></con:property><con:property><con:name>schvalovatel</con:name><con:value>1127054</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>ecu</con:name><con:value/></con:property><con:property><con:name>vo</con:name><con:value/></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
