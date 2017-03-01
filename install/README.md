@@ -73,11 +73,12 @@ Prístup ku košom úloh pre jednotlivé role, používateľov a k EČU sa v apl
 
 __deus.api.savedQuery.*__
 
-Názvy jednotlivých Saved Search Queries začínajú reťazcom _DEUSAPP.UTB._ , aby boli oddelené od ostatných, ktoré možno používajú iné aplikácie alebo správcovia. (Upozornenie: V IBM BPM verzii nižšej ako 8.5.5 je chyba, kedy jednotlivé Saved Search Queries si môžu prepisovať)
+Názvy jednotlivých Saved Search Queries začínajú reťazcom _DEUSAPP.UTB._ , aby boli oddelené od ostatných, ktoré možno používajú iné aplikácie alebo správcovia. (Upozornenie: V IBM BPM verzii nižšej ako 8.5.5 je chyba, kedy jednotlivé Saved Search Queries si môžu používatelia prepisovať)
 Saved Search Queries:
    - _DEUSAPP.UTB.ECU_: sa používa pre vyhľadanie aktívnych DEUS-ov
    - _DEUSAPP.UTB.User_: sa používa pre vyhľadanie priradených DEUS-ov
-   - _DEUSAPP.UTB.*_: sa používa ako pracovné koše pre jednotlivé role
+   - _DEUSAPP.UTB.(rola)_: sa používa ako šablóna jednotlivý rolí (tím v BPM) pre vytvorenie skupinového pracovného koša
+   - _DEUSAPP.UTB.(skupina)_: sa používa ako skupinové pracovné koše pre jednotlivé skupiny
 
 Vytvorenie uvedených Saved Search Queries je popísané nižšie.
 
@@ -98,3 +99,7 @@ Tento projekt má nadefinované a je potrebné nastaviť:
    - REST volania: sa nachádzajú v podstrome query/PUT
 
 Jednotlívé REST volania je potrebné spustiť a v pravej časti v záložke JSON skontrolovať, či prebehli v poriadku ("status": "200"). Ešte je možné výsledok overiť aj v Saved Search Admin v IBM BPM Process Admin Console.
+
+__Príklad vytvorenia nového skupinového koša:__
+
+Ak chceme, aby skupina používateľov s názvom skupiny 'DEUS_XYZ' mala dostupný pracovný kôš pre rolu Evidovateľ tak, je potrebné urobiť kópiu/clone requestu _DEUSAPP.UTB.Schvalovatelia_ a v requeste zmeniť parameter _saveAsName_ na _DEUSAPP.UTB.DEUS_XYZ_
