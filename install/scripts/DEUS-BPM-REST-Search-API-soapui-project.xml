@@ -14,7 +14,7 @@
   <con:entry key="shared" value="true"/>
   <con:entry key="organization" value="byTask"/>
   <con:entry key="sort" value="taskPriority"/>
-  <con:entry key="condition" value="assignedToRole|Contains|Schvalovatelia#bpdName|Vytvorenie elektronickej úverovej žiadosti#instanceStatus|Active#taskStatus|Received"/>
+  <con:entry key="condition" value="assignedToRole|Contains|Schvaľovatelia#bpdName|Vytvorenie elektronickej úverovej žiadosti#instanceStatus|Active#taskStatus|Received"/>
   <con:entry key="columns" value="DEUS_ECU,DEUS_STATUS,DEUS_LABEL,taskActivityName,taskStatus,taskPriority,assignedToRole,assignedToUser,taskReceivedDate,taskDueDate,taskClosedDate"/>
   <con:entry key="secondSort" value="taskReceivedDate"/>
   <con:entry key="saveAsName" value="DEUSAPP.UTB.Schvalovatelia"/>
@@ -50,6 +50,72 @@
   <con:entry key="columns" value="DEUS_ECU,DEUS_STATUS,DEUS_LABEL,taskActivityName,taskStatus,taskPriority,assignedToRole,assignedToUser,taskReceivedDate,taskDueDate,taskClosedDate"/>
   <con:entry key="secondSort" value="taskReceivedDate"/>
   <con:entry key="saveAsName" value="DEUSAPP.UTB.User"/>
+  <con:entry key="filterByCurrentUser" value="false"/>
+  <con:entry key="offset" value=""/>
+  <con:entry key="size" value=""/>
+</con:parameters><con:parameterOrder><con:entry>columns</con:entry><con:entry>condition</con:entry><con:entry>organization</con:entry><con:entry>saveAsName</con:entry><con:entry>sort</con:entry><con:entry>secondSort</con:entry><con:entry>size</con:entry><con:entry>offset</con:entry><con:entry>run</con:entry><con:entry>shared</con:entry><con:entry>filterByCurrentUser</con:entry></con:parameterOrder></con:request><con:request name="DEUSAPP.UTB.DEUS_Evidovatel - create" id="9ba6d4e5-e63f-4012-b61c-4b6fd94f03cb" mediaType="application/json" postQueryString="false" multiValueDelimiter="#"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/json,application/xml" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://extsoftec6.pss.local:9081</con:endpoint><con:request/><con:originalUri>http://extsoftec6.pss.local/rest/bpm/wle/v1/search/query</con:originalUri><con:credentials><con:username>${#Project#deusapp.username}</con:username><con:password>${#Project#deusapp.passwd}</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="shared" value="true"/>
+  <con:entry key="organization" value="byTask"/>
+  <con:entry key="sort" value="taskPriority"/>
+  <con:entry key="condition" value="assignedToRole|Contains|Evidovatelia#bpdName|Vytvorenie elektronickej úverovej žiadosti#instanceStatus|Active#taskStatus|Received"/>
+  <con:entry key="columns" value="DEUS_ECU,DEUS_STATUS,DEUS_LABEL,taskActivityName,taskStatus,taskPriority,assignedToRole,assignedToUser,taskReceivedDate,taskDueDate,taskClosedDate"/>
+  <con:entry key="secondSort" value="taskReceivedDate"/>
+  <con:entry key="saveAsName" value="DEUSAPP.UTB.DEUS_Evidovatel"/>
+  <con:entry key="filterByCurrentUser" value="false"/>
+  <con:entry key="offset" value=""/>
+  <con:entry key="size" value=""/>
+</con:parameters><con:parameterOrder><con:entry>columns</con:entry><con:entry>condition</con:entry><con:entry>organization</con:entry><con:entry>saveAsName</con:entry><con:entry>sort</con:entry><con:entry>secondSort</con:entry><con:entry>size</con:entry><con:entry>offset</con:entry><con:entry>run</con:entry><con:entry>shared</con:entry><con:entry>filterByCurrentUser</con:entry></con:parameterOrder></con:request><con:request name="DEUSAPP.UTB.DEUS_Obchodnik - create" id="9ba6d4e5-e63f-4012-b61c-4b6fd94f03cb" mediaType="application/json" postQueryString="false" multiValueDelimiter="#"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/json,application/xml" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://extsoftec6.pss.local:9081</con:endpoint><con:request/><con:originalUri>http://extsoftec6.pss.local/rest/bpm/wle/v1/search/query</con:originalUri><con:credentials><con:username>${#Project#deusapp.username}</con:username><con:password>${#Project#deusapp.passwd}</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="shared" value="true"/>
+  <con:entry key="organization" value="byTask"/>
+  <con:entry key="sort" value="taskPriority"/>
+  <con:entry key="condition" value="assignedToRole|Contains|Obchodnici#bpdName|Vytvorenie elektronickej úverovej žiadosti#instanceStatus|Active#taskStatus|Received"/>
+  <con:entry key="columns" value="DEUS_ECU,DEUS_STATUS,DEUS_LABEL,taskActivityName,taskStatus,taskPriority,assignedToRole,assignedToUser,taskReceivedDate,taskDueDate,taskClosedDate"/>
+  <con:entry key="secondSort" value="taskReceivedDate"/>
+  <con:entry key="saveAsName" value="DEUSAPP.UTB.DEUS_Obchodnik"/>
+  <con:entry key="filterByCurrentUser" value="false"/>
+  <con:entry key="offset" value=""/>
+  <con:entry key="size" value=""/>
+</con:parameters><con:parameterOrder><con:entry>columns</con:entry><con:entry>condition</con:entry><con:entry>organization</con:entry><con:entry>saveAsName</con:entry><con:entry>sort</con:entry><con:entry>secondSort</con:entry><con:entry>size</con:entry><con:entry>offset</con:entry><con:entry>run</con:entry><con:entry>shared</con:entry><con:entry>filterByCurrentUser</con:entry></con:parameterOrder></con:request><con:request name="DEUSAPP.UTB.DEUS_Schvalovatel - create" id="9ba6d4e5-e63f-4012-b61c-4b6fd94f03cb" mediaType="application/json" postQueryString="false" multiValueDelimiter="#"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/json,application/xml" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://extsoftec6.pss.local:9081</con:endpoint><con:request/><con:originalUri>http://extsoftec6.pss.local/rest/bpm/wle/v1/search/query</con:originalUri><con:credentials><con:username>${#Project#deusapp.username}</con:username><con:password>${#Project#deusapp.passwd}</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="shared" value="true"/>
+  <con:entry key="organization" value="byTask"/>
+  <con:entry key="sort" value="taskPriority"/>
+  <con:entry key="condition" value="assignedToRole|Contains|Schvaľovatelia#bpdName|Vytvorenie elektronickej úverovej žiadosti#instanceStatus|Active#taskStatus|Received"/>
+  <con:entry key="columns" value="DEUS_ECU,DEUS_STATUS,DEUS_LABEL,taskActivityName,taskStatus,taskPriority,assignedToRole,assignedToUser,taskReceivedDate,taskDueDate,taskClosedDate"/>
+  <con:entry key="saveAsName" value="DEUSAPP.UTB.DEUS_Schvalovatel"/>
+  <con:entry key="secondSort" value="taskReceivedDate"/>
+  <con:entry key="filterByCurrentUser" value="false"/>
+  <con:entry key="offset" value=""/>
+  <con:entry key="size" value=""/>
+</con:parameters><con:parameterOrder><con:entry>columns</con:entry><con:entry>condition</con:entry><con:entry>organization</con:entry><con:entry>saveAsName</con:entry><con:entry>sort</con:entry><con:entry>secondSort</con:entry><con:entry>size</con:entry><con:entry>offset</con:entry><con:entry>run</con:entry><con:entry>shared</con:entry><con:entry>filterByCurrentUser</con:entry></con:parameterOrder></con:request><con:request name="DEUSAPP.UTB.DEUS_Vyplacac - create" id="9ba6d4e5-e63f-4012-b61c-4b6fd94f03cb" mediaType="application/json" postQueryString="false" multiValueDelimiter="#"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/json,application/xml" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://extsoftec6.pss.local:9081</con:endpoint><con:request/><con:originalUri>http://extsoftec6.pss.local/rest/bpm/wle/v1/search/query</con:originalUri><con:credentials><con:username>${#Project#deusapp.username}</con:username><con:password>${#Project#deusapp.passwd}</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="shared" value="true"/>
+  <con:entry key="organization" value="byTask"/>
+  <con:entry key="sort" value="taskPriority"/>
+  <con:entry key="condition" value="assignedToRole|Contains|Vyplácači#bpdName|Vytvorenie elektronickej úverovej žiadosti#instanceStatus|Active#taskStatus|Received"/>
+  <con:entry key="columns" value="DEUS_ECU,DEUS_STATUS,DEUS_LABEL,taskActivityName,taskStatus,taskPriority,assignedToRole,assignedToUser,taskReceivedDate,taskDueDate,taskClosedDate"/>
+  <con:entry key="secondSort" value="taskReceivedDate"/>
+  <con:entry key="saveAsName" value="DEUSAPP.UTB.DEUS_Vyplacac"/>
+  <con:entry key="filterByCurrentUser" value="false"/>
+  <con:entry key="offset" value=""/>
+  <con:entry key="size" value=""/>
+</con:parameters><con:parameterOrder><con:entry>columns</con:entry><con:entry>condition</con:entry><con:entry>organization</con:entry><con:entry>saveAsName</con:entry><con:entry>sort</con:entry><con:entry>secondSort</con:entry><con:entry>size</con:entry><con:entry>offset</con:entry><con:entry>run</con:entry><con:entry>shared</con:entry><con:entry>filterByCurrentUser</con:entry></con:parameterOrder></con:request><con:request name="DEUSAPP.UTB.DEUS_Ini_PRAb - create" id="9ba6d4e5-e63f-4012-b61c-4b6fd94f03cb" mediaType="application/json" postQueryString="false" multiValueDelimiter="#"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/json,application/xml" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://extsoftec6.pss.local:9081</con:endpoint><con:request/><con:originalUri>http://extsoftec6.pss.local/rest/bpm/wle/v1/search/query</con:originalUri><con:credentials><con:username>${#Project#deusapp.username}</con:username><con:password>${#Project#deusapp.passwd}</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="shared" value="true"/>
+  <con:entry key="organization" value="byTask"/>
+  <con:entry key="sort" value="taskPriority"/>
+  <con:entry key="condition" value="assignedToRole|Contains|PRAb#bpdName|Vytvorenie elektronickej úverovej žiadosti#instanceStatus|Active#taskStatus|Received"/>
+  <con:entry key="columns" value="DEUS_ECU,DEUS_STATUS,DEUS_LABEL,taskActivityName,taskStatus,taskPriority,assignedToRole,assignedToUser,taskReceivedDate,taskDueDate,taskClosedDate"/>
+  <con:entry key="saveAsName" value="DEUSAPP.UTB.DEUS_Ini_PRAb"/>
+  <con:entry key="secondSort" value="taskReceivedDate"/>
+  <con:entry key="filterByCurrentUser" value="false"/>
+  <con:entry key="offset" value=""/>
+  <con:entry key="size" value=""/>
+</con:parameters><con:parameterOrder><con:entry>columns</con:entry><con:entry>condition</con:entry><con:entry>organization</con:entry><con:entry>saveAsName</con:entry><con:entry>sort</con:entry><con:entry>secondSort</con:entry><con:entry>size</con:entry><con:entry>offset</con:entry><con:entry>run</con:entry><con:entry>shared</con:entry><con:entry>filterByCurrentUser</con:entry></con:parameterOrder></con:request><con:request name="DEUSAPP.UTB.DEUS_VSSd - create" id="9ba6d4e5-e63f-4012-b61c-4b6fd94f03cb" mediaType="application/json" postQueryString="false" multiValueDelimiter="#"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/json,application/xml" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://extsoftec6.pss.local:9081</con:endpoint><con:request/><con:originalUri>http://extsoftec6.pss.local/rest/bpm/wle/v1/search/query</con:originalUri><con:credentials><con:username>${#Project#deusapp.username}</con:username><con:password>${#Project#deusapp.passwd}</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="shared" value="true"/>
+  <con:entry key="organization" value="byTask"/>
+  <con:entry key="sort" value="taskPriority"/>
+  <con:entry key="condition" value="assignedToRole|Contains|SpracovateliaDokumentov#bpdName|Vytvorenie elektronickej úverovej žiadosti#instanceStatus|Active#taskStatus|Received"/>
+  <con:entry key="columns" value="DEUS_ECU,DEUS_STATUS,DEUS_LABEL,taskActivityName,taskStatus,taskPriority,assignedToRole,assignedToUser,taskReceivedDate,taskDueDate,taskClosedDate"/>
+  <con:entry key="secondSort" value="taskReceivedDate"/>
+  <con:entry key="saveAsName" value="DEUSAPP.UTB.DEUS_VSSd"/>
   <con:entry key="filterByCurrentUser" value="false"/>
   <con:entry key="offset" value=""/>
   <con:entry key="size" value=""/>
