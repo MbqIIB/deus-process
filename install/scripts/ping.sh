@@ -1,0 +1,1 @@
+curl -v -X POST -H 'Content-Type: text/xml;charset=UTF-8' -H 'SOAPAction: "http://xmlns.pss.sk/bpm/deus/api/v1/info.tws/ping"' --data @ping.xml http://<hostname>:<port>/teamworks/webservices/DEUSAPI/info.tws

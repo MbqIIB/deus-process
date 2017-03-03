@@ -1,0 +1,6 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:info="http://xmlns.pss.sk/bpm/deus/api/v1/info.tws">
+	   <soapenv:Header/>
+	      <soapenv:Body>
+		            <info:ping/>
+			       </soapenv:Body>
+		       </soapenv:Envelope>
