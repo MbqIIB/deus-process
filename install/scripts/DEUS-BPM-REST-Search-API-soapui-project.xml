@@ -36,10 +36,10 @@
   <con:entry key="shared" value="true"/>
   <con:entry key="organization" value="byTask"/>
   <con:entry key="sort" value="taskPriority"/>
-  <con:entry key="condition" value="assignedToRole|Contains|&lt;group>#bpdName|Spolupraca ineho utvaru#instanceStatus|Active#taskStatus|Received"/>
+  <con:entry key="condition" value="assignedToRole|Contains|&lt;group>#instanceProcessApp|DEUSBP#instanceStatus|Active#taskStatus|Received"/>
   <con:entry key="columns" value="DEUS_ECU,DEUS_STATUS,DEUS_LABEL,taskActivityName,taskStatus,taskPriority,assignedToRole,assignedToUser,taskReceivedDate,taskDueDate,taskClosedDate"/>
-  <con:entry key="secondSort" value="taskReceivedDate"/>
   <con:entry key="saveAsName" value="DEUSAPP.UTB.DEUS_Ini_PRAb"/>
+  <con:entry key="secondSort" value="taskReceivedDate"/>
   <con:entry key="filterByCurrentUser" value="false"/>
   <con:entry key="offset" value=""/>
   <con:entry key="size" value=""/>
@@ -113,10 +113,10 @@
   <con:entry key="shared" value="true"/>
   <con:entry key="organization" value="byTask"/>
   <con:entry key="sort" value="taskPriority"/>
-  <con:entry key="condition" value="assignedToRole|Contains|Ini_PRAb#bpdName|Spolupraca ineho utvaru#instanceStatus|Active#taskStatus|Received"/>
+  <con:entry key="condition" value="assignedToRole|Contains|Ini_PRAb#instanceProcessApp|DEUSBP#instanceStatus|Active#taskStatus|Received"/>
   <con:entry key="columns" value="DEUS_ECU,DEUS_STATUS,DEUS_LABEL,taskActivityName,taskStatus,taskPriority,assignedToRole,assignedToUser,taskReceivedDate,taskDueDate,taskClosedDate"/>
-  <con:entry key="saveAsName" value="DEUSAPP.UTB.DEUS_Ini_PRAb"/>
   <con:entry key="secondSort" value="taskReceivedDate"/>
+  <con:entry key="saveAsName" value="DEUSAPP.UTB.DEUS_Ini_PRAb"/>
   <con:entry key="filterByCurrentUser" value="false"/>
   <con:entry key="offset" value=""/>
   <con:entry key="size" value=""/>
@@ -135,10 +135,10 @@
   <con:entry key="shared" value="true"/>
   <con:entry key="organization" value="byTask"/>
   <con:entry key="sort" value="taskPriority"/>
-  <con:entry key="condition" value="assignedToRole|Contains|Ini_UVA#bpdName|Spolupraca ineho utvaru#instanceStatus|Active#taskStatus|Received"/>
+  <con:entry key="condition" value="assignedToRole|Contains|Ini_UVA#instanceProcessApp|DEUSBP#instanceStatus|Active#taskStatus|Received"/>
   <con:entry key="columns" value="DEUS_ECU,DEUS_STATUS,DEUS_LABEL,taskActivityName,taskStatus,taskPriority,assignedToRole,assignedToUser,taskReceivedDate,taskDueDate,taskClosedDate"/>
-  <con:entry key="saveAsName" value="DEUSAPP.UTB.DEUS_Ini_UVA"/>
   <con:entry key="secondSort" value="taskReceivedDate"/>
+  <con:entry key="saveAsName" value="DEUSAPP.UTB.DEUS_Ini_UVA"/>
   <con:entry key="filterByCurrentUser" value="false"/>
   <con:entry key="offset" value=""/>
   <con:entry key="size" value=""/>
@@ -146,10 +146,10 @@
   <con:entry key="shared" value="true"/>
   <con:entry key="organization" value="byTask"/>
   <con:entry key="sort" value="taskPriority"/>
-  <con:entry key="condition" value="assignedToRole|Contains|Ini_VSSd#bpdName|Spolupraca ineho utvaru#instanceStatus|Active#taskStatus|Received"/>
+  <con:entry key="condition" value="assignedToRole|Contains|Ini_VSSd#instanceProcessApp|DEUSBP#instanceStatus|Active#taskStatus|Received"/>
   <con:entry key="columns" value="DEUS_ECU,DEUS_STATUS,DEUS_LABEL,taskActivityName,taskStatus,taskPriority,assignedToRole,assignedToUser,taskReceivedDate,taskDueDate,taskClosedDate"/>
-  <con:entry key="secondSort" value="taskReceivedDate"/>
   <con:entry key="saveAsName" value="DEUSAPP.UTB.DEUS_Ini_VSSd"/>
+  <con:entry key="secondSort" value="taskReceivedDate"/>
   <con:entry key="filterByCurrentUser" value="false"/>
   <con:entry key="offset" value=""/>
   <con:entry key="size" value=""/>
@@ -157,10 +157,10 @@
   <con:entry key="shared" value="true"/>
   <con:entry key="organization" value="byTask"/>
   <con:entry key="sort" value="taskPriority"/>
-  <con:entry key="condition" value="assignedToRole|Contains|Ini_konzultacia#bpdName|Spolupraca ineho utvaru#instanceStatus|Active#taskStatus|Received"/>
+  <con:entry key="condition" value="assignedToRole|Contains|Ini_konzultacia#instanceProcessApp|DEUSBP#instanceStatus|Active#taskStatus|Received"/>
   <con:entry key="columns" value="DEUS_ECU,DEUS_STATUS,DEUS_LABEL,taskActivityName,taskStatus,taskPriority,assignedToRole,assignedToUser,taskReceivedDate,taskDueDate,taskClosedDate"/>
-  <con:entry key="saveAsName" value="DEUSAPP.UTB.DEUS_Ini_konzult"/>
   <con:entry key="secondSort" value="taskReceivedDate"/>
+  <con:entry key="saveAsName" value="DEUSAPP.UTB.DEUS_Ini_konzult"/>
   <con:entry key="filterByCurrentUser" value="false"/>
   <con:entry key="offset" value=""/>
   <con:entry key="size" value=""/>
