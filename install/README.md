@@ -13,8 +13,8 @@ Import TWX do IBM BPM
 Business Process aplikácia pozostáva z:
 1. Toolkit-u "DEUS - Rozhrania"
    - "DEUS_-_Rozhrania - verzia.twx"
-2. aplikácie "DEUS - Elektronická úverová žiadosť"
-   - "DEUS_-_Elektronická_úverová_žiadosť - verzia.twx"
+2. aplikácie "DEUS - Elektronicka uverova ziadost"
+   - "DEUS_-_Elektronicka_uverova_ziadost - verzia.twx"
 
 Uvedené exporty sú umiestnené v adresári exports.
 
@@ -64,8 +64,10 @@ alebo cez LB, pričom je potrebné zabezpečiť konektivitu (sám na seba cez LB
 
 __ibm.api.rest.securityAlias__
 
-Pre prístup k IBM REST API je potrebné použíť autentikovaný pristup prostredníctvom J2C auth (IBM WAS Admin Console: Global security > JAAS - J2C authentication data). Uvedené konto musí mať admin prístup k BPM REST API.
-Odporúčame ponechať tento konfiguračný kľúč na hodnote DeAdminAlias.
+Pre prístup k IBM REST API je potrebné použíť autentikovaný pristup prostredníctvom J2C auth (IBM WAS Admin Console: Global security > JAAS - J2C authentication data).Uvedené konto musí mať admin prístup k BPM REST API.
+Odporúčame pre tento konfiguračný kľúč nechať na hodnote DeusAppAlias a zadefinovať ho v J2C auth.
+
+![SecurityAlias](./SecurityAlias.png "Vytvorenie security aliasu pre pr9stup DEUS aplikacie k IBM BPM REST API")
 
 ### Konfigurácia Saved Search Query
 
@@ -98,7 +100,11 @@ Tento projekt má nadefinované a je potrebné nastaviť:
    - Service Endpoints: hostname a port IBM BPM servera
    - REST volania: sa nachádzajú v podstrome query/PUT
 
-Jednotlívé REST volania je potrebné spustiť a v pravej časti v záložke JSON skontrolovať, či prebehli v poriadku ("status": "200"). Ešte je možné výsledok overiť aj v Saved Search Admin v IBM BPM Process Admin Console.
+Jednotlívé REST volania je potrebné spustiť a v pravej časti v záložke JSON skontrolovať, či prebehli v poriadku ("status": "200"). Ešte je možné výsledok overiť aj v Saved Search Admin v IBM BPM Process Admin Console alebo cez volanie SOAPui služby SavedSerch (viď. obrázok).
+
+![SavedSearchQueries](SavedSearchQueries.png "Vytvorenie a kontrola Saved Search Queries")
+
+Upozornenie: IBM BPM nepodporuje pre Saved Search Query nazov dlhší ako 30 znakov. Preto je názov Query orezané na 30 znakov v definícii Query (viď. príklad na obrázku označené farebnou bodkou), ale aj v aplikácii, kde skupinový kôš využíva Query s orezanim na presne 30 znakov.
 
 __Príklad vytvorenia nového skupinového koša:__
 
