@@ -104,8 +104,8 @@ Jednotlívé REST volania je potrebné spustiť a v pravej časti v záložke JS
 
 ![SavedSearchQueries](SavedSearchQueries.png "Vytvorenie a kontrola Saved Search Queries")
 
-Upozornenie: IBM BPM nepodporuje pre Saved Search Query nazov dlhší ako 30 znakov. Preto je názov Query orezané na 30 znakov v definícii Query (viď. príklad na obrázku označené farebnou bodkou), ale aj v aplikácii, kde skupinový kôš využíva Query s orezanim na presne 30 znakov.
+__Upozornenie:__ IBM BPM nepodporuje pre Saved Search Query nazov dlhší ako 30 znakov. Preto je názov Query orezané na 30 znakov v definícii Query (viď. príklad na obrázku označené farebnou bodkou), ale aj v aplikácii, kde skupinový kôš využíva Query s orezanim na presne 30 znakov.
 
 __Príklad vytvorenia nového skupinového koša:__
 
-Ak chceme, aby skupina používateľov s názvom skupiny 'DEUS_XYZ' mala dostupný pracovný kôš pre rolu Evidovateľ tak, je potrebné urobiť kópiu/clone requestu _DEUSAPP.UTB.Schvalovatelia_ a v requeste zmeniť parameter _saveAsName_ na _DEUSAPP.UTB.DEUS_XYZ_
+Ak chceme, aby skupina používateľov s názvom skupiny 'DEUS_XYZ' mala dostupný pracovný kôš pre rolu Evidovateľ tak, je potrebné urobiť kópiu/clone requestu _DEUSAPP.UTB.Schvalovatelia_ a v requeste zmeniť parameter _saveAsName_ na _DEUSAPP.UTB.DEUS\_XYZ_
