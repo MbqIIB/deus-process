@@ -95,14 +95,16 @@ Vytvorenie Saved Search Queries
 
 Pre vytvorenie jednotlivých Saved Search Queries je potrebné použiť aplikáciu SOAPui (https://www.soapui.org/). V adresári scripts sa nachádza SOAPui projekt _DEUS-BPM-REST-Search-API-soapui-project.xml_, ktorý je potrebné Importnúť do SOAPui.
 
-Tento projekt má nadefinované a je potrebné nastaviť:
-   - Project properties: __deusapp.username__ a __deusapp.passwd__ ako auth pre IBM BPM REST služby
-   - Service Endpoints: hostname a port IBM BPM servera
-   - REST volania: sa nachádzajú v podstrome query/PUT
+Tento projekt má nadefinované a je potrebné nastaviť v soapUI Project properties:
+   - __query.endpoint__ URL base pre IBM BPM
+   - __deusapp.username__ a __deusapp.passwd__ ako auth pre IBM BPM REST služby
 
-Jednotlívé REST volania je potrebné spustiť a v pravej časti v záložke JSON skontrolovať, či prebehli v poriadku ("status": "200"). Ešte je možné výsledok overiť aj v Saved Search Admin v IBM BPM Process Admin Console alebo cez volanie SOAPui služby SavedSerch (viď. obrázok).
+Automaticka inštalácia všetkých SavedSearchQueries sa vykoná prostredníctvom TestSuite "Install Queries" (viď. obrázok 1).
+Ešte je možné výsledok overiť aj v Saved Search Admin v IBM BPM Process Admin Console alebo cez volanie SOAPui služby SavedSerch (viď. obrázok 2).
 
-![SavedSearchQueries](SavedSearchQueries.png "Vytvorenie a kontrola Saved Search Queries")
+![SavedSearchQueries](SavedSearchQueries.png "Vytvorenie Saved Search Queries")
+
+![SavedSearchQueriesCheck](SavedSearchQueries-check.png "Kontrola Saved Search Queries")
 
 __Upozornenie:__ IBM BPM nepodporuje pre Saved Search Query nazov dlhší ako 30 znakov. Preto je názov Query orezané na 30 znakov v definícii Query (viď. príklad na obrázku označené farebnou bodkou), ale aj v aplikácii, kde skupinový kôš využíva Query s orezanim na presne 30 znakov.
 
