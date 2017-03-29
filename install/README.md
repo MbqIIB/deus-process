@@ -67,7 +67,9 @@ __ibm.api.rest.securityAlias__
 Pre prístup k IBM REST API je potrebné použíť autentikovaný pristup prostredníctvom J2C auth (IBM WAS Admin Console: Global security > JAAS - J2C authentication data).Uvedené konto musí mať admin prístup k BPM REST API.
 Odporúčame pre tento konfiguračný kľúč nechať na hodnote DeusAppAlias a zadefinovať ho v J2C auth.
 
-![SecurityAlias](./SecurityAlias.png "Vytvorenie security aliasu pre pr9stup DEUS aplikacie k IBM BPM REST API")
+![SecurityAlias](./SecurityAlias.png "Vytvorenie security aliasu pre prístup DEUS aplikacie k IBM BPM REST API")
+
+![SecurityAliasAplied](./SecurityAliasAplied.png "Aplikovanie security aliasu na HTTP Bindings")
 
 ### Konfigurácia Saved Search Query
 
