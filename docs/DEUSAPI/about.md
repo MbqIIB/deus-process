@@ -7,4 +7,3 @@ DEUSAPI is Toolkit with Integracion services to controling the business process 
    author: Stanislav Poljovka
    created for: Prvá stavebná sporiteľňa, a. s.
    based on contract with: Softec, s.r.o.
-   copyright: (c) Stanislav Poljovka, 2017
