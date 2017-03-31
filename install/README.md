@@ -20,6 +20,10 @@ Uvedené exporty sú umiestnené v adresári exports.
 
 Exporty (posledné verzie) je potrebné importnú do IBM BPM Repository podľa zaužívaných postupov alebo dokumentácie k produktu.
 
+Pri inštalácii novej verzie procesnej aplikácie odporúčame synchronizovať nastavenia z poslednej verzie do novej verzie cez Process Admin Console.
+
+![SyncEnvironment](./SyncEnvironment.png "Synchronizácia nastavenia procesnej aplikacie pre novú verziu")
+
 Definovanie tímov v IBM BPM
 ---------------------------
 
@@ -105,6 +109,7 @@ Automaticka inštalácia všetkých SavedSearchQueries sa vykoná prostredníctv
 Ešte je možné výsledok overiť aj v Saved Search Admin v IBM BPM Process Admin Console alebo cez volanie SOAPui služby SavedSerch (viď. obrázok 2).
 
 ![SavedSearchQueries](SavedSearchQueries.png "Vytvorenie Saved Search Queries")
+Custom properties je možné mahrať z properties súboru pre dané prostredie. Príklad je v súbore scripts/DEUS-BPM-REST-Search-API-dev2.properties
 
 ![SavedSearchQueriesCheck](SavedSearchQueries-check.png "Kontrola Saved Search Queries")
 
