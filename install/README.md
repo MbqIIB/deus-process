@@ -51,19 +51,10 @@ __deus.app.rest.endpoint__
 Webová aplikácia DEUS poskytuje REST služby na adrese napr. http://wastest:9080/deus-services/api/ .
 Overenie funkčnosti v prehliadači http://wastest:9080/deus-services/api/application/{ECU}
 
-__ibs.rest.ecu.endpoint__
-
-Rezervácia resp. uvoľnenie EČU je realizované prostredníctvom REST služby v systéme IBS na adrese napr. http://wastest:9080/ecuws/rest/ecu/ .
-Overenie funkčnosti v prehliadači http://wastest:9080/ecuws/swagger-ui.html
-
-__ibm.api.rest.savedQuery.endpoint__
-a
-__ibm.api.rest.taskData.endpoint__
+__ibm.api.rest.endpoint__
 
 Interné REST API od IBM pre prístup UserTask-om môže byť odkazovaná cez localhost
-http://localhost:9081/rest/bpm/wle/v1/tasks/query/
-a
-http://localhost:9081/rest/bpm/wle/v1/service/
+http://localhost:9080/rest/bpm/wle/v1/
 alebo cez LB, pričom je potrebné zabezpečiť konektivitu (sám na seba cez LB).
 
 __ibm.api.rest.securityAlias__
@@ -71,9 +62,8 @@ __ibm.api.rest.securityAlias__
 Pre prístup k IBM REST API je potrebné použíť autentikovaný pristup prostredníctvom J2C auth (IBM WAS Admin Console: Global security > JAAS - J2C authentication data).Uvedené konto musí mať admin prístup k BPM REST API.
 Odporúčame pre tento konfiguračný kľúč nechať na hodnote DeusAppAlias a zadefinovať ho v J2C auth.
 
-![SecurityAlias](./SecurityAlias.png "Vytvorenie security aliasu pre prístup DEUS aplikacie k IBM BPM REST API")
+![SecurityAlias](./securityAlias.png "Vytvorenie security aliasu pre prístup DEUS aplikacie k IBM BPM REST API")
 
-![SecurityAliasAplied](./SecurityAliasAplied.png "Aplikovanie security aliasu na HTTP Bindings")
 
 ### Konfigurácia Saved Search Query
 
@@ -85,8 +75,8 @@ Názvy jednotlivých Saved Search Queries začínajú reťazcom _DEUSAPP.UTB._ ,
 Saved Search Queries:
    - _DEUSAPP.UTB.ECU_: sa používa pre vyhľadanie aktívnych DEUS-ov
    - _DEUSAPP.UTB.User_: sa používa pre vyhľadanie priradených DEUS-ov
-   - _DEUSAPP.UTB.(rola)_: sa používa ako šablóna jednotlivý rolí (tím v BPM) pre vytvorenie skupinového pracovného koša
-   - _DEUSAPP.UTB.(skupina)_: sa používa ako skupinové pracovné koše pre jednotlivé skupiny
+   - _DEUSAPP.UTB.(rola)_: sa používa ako šablóna jednotlivý rolí (tím v BPM, ale bez diakritiky) pre vytvorenie skupinového pracovného koša
+   - _DEUSAPP.UTB.(skupina)_: sa používa ako skupinové pracovné koše pre jednotlivé skupiny, čo je definované aj v premennej prostredia _deus.api.savedQuery.prefix.group_
 
 Vytvorenie uvedených Saved Search Queries je popísané nižšie.
 
@@ -109,7 +99,7 @@ Automaticka inštalácia všetkých SavedSearchQueries sa vykoná prostredníctv
 Ešte je možné výsledok overiť aj v Saved Search Admin v IBM BPM Process Admin Console alebo cez volanie SOAPui služby SavedSerch (viď. obrázok 2).
 
 ![SavedSearchQueries](SavedSearchQueries.png "Vytvorenie Saved Search Queries")
-Custom properties je možné mahrať z properties súboru pre dané prostredie. Príklad je v súbore scripts/DEUS-BPM-REST-Search-API-dev2.properties
+Custom properties je možné nahrať z properties súboru pre dané prostredie. Príklad je v súbore scripts/DEUS-BPM-REST-Search-API-dev2.properties
 
 ![SavedSearchQueriesCheck](SavedSearchQueries-check.png "Kontrola Saved Search Queries")
 
