@@ -1016,7 +1016,1079 @@
    <soapenv:Body>\r
       <inf:ping/>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/infoapi.tws/ping"/></con:call></con:operation></con:interface><con:testSuite id="c56773e4-e41d-4cea-9e46-c2a62a7b7088" name="Dev TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="0dc8ca41-33c3-4497-b06f-efdc88e29f82" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase Manualne sprocesovanie" searchProperties="true"><con:settings/><con:testStep type="request" id="dcd5761b-10c2-4969-9551-3a9d7ef88987" name="start"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DeusProcessWSSoapSoapBinding</con:interface><con:operation>start</con:operation><con:request name="start" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="2902efed-69d6-431a-9b02-fdd429c4e9bb"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#bpm.endpoint}/teamworks/webservices/DEUSBP/DeusProcessWS.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:deus="http://xmlns.pss.sk/bpm/deus/app/v1/DeusProcessWS">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/api/v1/infoapi.tws/ping"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="f4a962f4-b10d-436a-8fe1-9a6831504a9f" wsaVersion="NONE" name="MainKpiWSSoapSoapBinding" type="wsdl" bindingName="{http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws}MainKpiWSSoapSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://ddeusbpm85.pss.local:9080/teamworks/webservices/DEUSBP/MainKpiWS.tws?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://ddeusbpm85.pss.local:9080/teamworks/webservices/DEUSBP/MainKpiWS.tws?WSDL"><con:part><con:url>http://ddeusbpm85.pss.local:9080/teamworks/webservices/DEUSBP/MainKpiWS.tws?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws" xmlns:impl="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws" xmlns:impl1="http://xmlns.pss.sk/bpm/deus/api/v1/kpi" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:intf="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://xmlns.pss.sk/bpm/deus/api/v1/kpi"/>
+      <element name="countOfApprovedApplication">
+        <complexType>
+          <sequence>
+            <element name="usernames" type="impl:ArrayOf_string"/>
+            <element name="dateFrom" type="xsd:dateTime"/>
+            <element name="dateTo" type="xsd:dateTime"/>
+            <element name="loanType" type="xsd:int"/>
+            <element name="isMortgageRight" type="xsd:boolean"/>
+          </sequence>
+        </complexType>
+      </element>
+      <complexType name="ArrayOf_string">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <element name="countOfApprovedApplicationResponse">
+        <complexType>
+          <sequence>
+            <element name="approvedPerPerson" type="impl1:ArrayOf_CountPerPerson"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="totalCountOfApprovedApplication">
+        <complexType>
+          <sequence>
+            <element name="usernames" type="impl:ArrayOf_string"/>
+            <element name="dateFrom" type="xsd:dateTime"/>
+            <element name="dateTo" type="xsd:dateTime"/>
+            <element name="loanType" type="xsd:int"/>
+            <element name="isMortgageRight" type="xsd:boolean"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="totalCountOfApprovedApplicationResponse">
+        <complexType>
+          <sequence>
+            <element name="approved" type="xsd:int"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="deficiency">
+        <complexType>
+          <sequence>
+            <element name="usernames" type="impl:ArrayOf_string"/>
+            <element name="dateFrom" type="xsd:dateTime"/>
+            <element name="dateTo" type="xsd:dateTime"/>
+            <element name="loanType" type="xsd:int"/>
+            <element name="isMortgageRight" type="xsd:boolean"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="deficiencyResponse">
+        <complexType>
+          <sequence>
+            <element name="deficiencyPerPerson" type="impl1:ArrayOf_DeficiencyPerPerson"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="totalDeficiency">
+        <complexType>
+          <sequence>
+            <element name="usernames" type="impl:ArrayOf_string"/>
+            <element name="dateFrom" type="xsd:dateTime"/>
+            <element name="dateTo" type="xsd:dateTime"/>
+            <element name="loanType" type="xsd:int"/>
+            <element name="isMortgageRight" type="xsd:boolean"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="totalDeficiencyResponse">
+        <complexType>
+          <sequence>
+            <element name="deficiency" type="xsd:double"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="amountOfDraftApplication">
+        <complexType>
+          <sequence>
+            <element name="usernames" type="impl:ArrayOf_string"/>
+            <element name="dateFrom" type="xsd:dateTime"/>
+            <element name="dateTo" type="xsd:dateTime"/>
+            <element name="loanType" type="xsd:int"/>
+            <element name="isMortgageRight" type="xsd:boolean"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="amountOfDraftApplicationResponse">
+        <complexType>
+          <sequence>
+            <element name="dailyAmountPerPerson" type="impl1:ArrayOf_DailyAmountPerPerson"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="totalAmountOfDraftApplication">
+        <complexType>
+          <sequence>
+            <element name="usernames" type="impl:ArrayOf_string"/>
+            <element name="dateFrom" type="xsd:dateTime"/>
+            <element name="dateTo" type="xsd:dateTime"/>
+            <element name="loanType" type="xsd:int"/>
+            <element name="isMortgageRight" type="xsd:boolean"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="totalAmountOfDraftApplicationResponse">
+        <complexType>
+          <sequence>
+            <element name="dailyAmount" type="impl1:ArrayOf_DailyAmount"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="countOfDraftApplication">
+        <complexType>
+          <sequence>
+            <element name="usernames" type="impl:ArrayOf_string"/>
+            <element name="dateFrom" type="xsd:dateTime"/>
+            <element name="dateTo" type="xsd:dateTime"/>
+            <element name="loanType" type="xsd:int"/>
+            <element name="isMortgageRight" type="xsd:boolean"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="countOfDraftApplicationResponse">
+        <complexType>
+          <sequence>
+            <element name="dailyCountPerPerson" type="impl1:ArrayOf_DailyCountPerPerson"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="totalCountOfDraftApplication">
+        <complexType>
+          <sequence>
+            <element name="usernames" type="impl:ArrayOf_string"/>
+            <element name="dateFrom" type="xsd:dateTime"/>
+            <element name="dateTo" type="xsd:dateTime"/>
+            <element name="loanType" type="xsd:int"/>
+            <element name="isMortgageRight" type="xsd:boolean"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="totalCountOfDraftApplicationResponse">
+        <complexType>
+          <sequence>
+            <element name="dailyCount" type="impl1:ArrayOf_DailyCount"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="averageProcessingTime">
+        <complexType>
+          <sequence>
+            <element name="usernames" type="impl:ArrayOf_string"/>
+            <element name="dateFrom" type="xsd:dateTime"/>
+            <element name="dateTo" type="xsd:dateTime"/>
+            <element name="loanType" type="xsd:int"/>
+            <element name="isMortgageRight" type="xsd:boolean"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="averageProcessingTimeResponse">
+        <complexType>
+          <sequence>
+            <element name="averageTimePerPerson" type="impl1:ArrayOf_TimePerPerson"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="totalAverageProcessingTime">
+        <complexType>
+          <sequence>
+            <element name="usernames" type="impl:ArrayOf_string"/>
+            <element name="dateFrom" type="xsd:dateTime"/>
+            <element name="dateTo" type="xsd:dateTime"/>
+            <element name="loanType" type="xsd:int"/>
+            <element name="isMortgageRight" type="xsd:boolean"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="totalAverageProcessingTimeResponse">
+        <complexType>
+          <sequence>
+            <element name="averageTime" type="xsd:dateTime"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="processingTimeByRole">
+        <complexType>
+          <sequence>
+            <element name="role" type="xsd:string"/>
+            <element name="usernanes" type="impl:ArrayOf_string"/>
+            <element name="dateFrom" type="xsd:dateTime"/>
+            <element name="dateTo" type="xsd:dateTime"/>
+            <element name="loanType" type="xsd:int"/>
+            <element name="isMortgageRight" type="xsd:boolean"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="processingTimeByRoleResponse">
+        <complexType>
+          <sequence>
+            <element name="performancePerPerson" type="impl1:ArrayOf_PerformancePerPerson"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="totalProcessingTimeByRole">
+        <complexType>
+          <sequence>
+            <element name="role" type="xsd:string"/>
+            <element name="usernames" type="impl:ArrayOf_string"/>
+            <element name="dateFrom" type="xsd:dateTime"/>
+            <element name="dateTo" type="xsd:dateTime"/>
+            <element name="loanType" type="xsd:int"/>
+            <element name="isMortgageRight" type="xsd:boolean"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="totalProcessingTimeByRoleResponse">
+        <complexType>
+          <sequence>
+            <element name="performance" type="impl1:Performance"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="processingTimeByPhase">
+        <complexType>
+          <sequence>
+            <element name="phase" type="xsd:string"/>
+            <element name="usernames" type="impl:ArrayOf_string"/>
+            <element name="dateFrom" type="xsd:dateTime"/>
+            <element name="dateTo" type="xsd:dateTime"/>
+            <element name="loanType" type="xsd:int"/>
+            <element name="isMortgageRight" type="xsd:boolean"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="processingTimeByPhaseResponse">
+        <complexType>
+          <sequence>
+            <element name="performancePerPerson" type="impl1:ArrayOf_PerformancePerPerson"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="totalProcessingTimeByPhase">
+        <complexType>
+          <sequence>
+            <element name="phase" type="xsd:string"/>
+            <element name="usernames" type="impl:ArrayOf_string"/>
+            <element name="dateFrom" type="xsd:dateTime"/>
+            <element name="dateTo" type="xsd:dateTime"/>
+            <element name="loanType" type="xsd:int"/>
+            <element name="isMortgageRight" type="xsd:boolean"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="totalProcessingTimeByPhaseResponse">
+        <complexType>
+          <sequence>
+            <element name="performance" type="impl1:Performance"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+    <schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.pss.sk/bpm/deus/api/v1/kpi" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws">
+        <!--Add URI of the schema document for the imported namespace using 'schemaLocation' attribute.-->
+      </import>
+      <complexType name="DailyAmountPerPerson">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="username" nillable="false" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="day" nillable="false" type="xsd:dateTime"/>
+          <element maxOccurs="1" minOccurs="0" name="amount" nillable="false" type="xsd:double"/>
+        </sequence>
+      </complexType>
+      <complexType name="DeficiencyPerPerson">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="username" nillable="false" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="deficiency" nillable="false" type="xsd:double"/>
+        </sequence>
+      </complexType>
+      <complexType name="TimePerPerson">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="username" nillable="false" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="time" nillable="false" type="xsd:dateTime"/>
+        </sequence>
+      </complexType>
+      <complexType name="PerformancePerPerson">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="username" nillable="false" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="count" nillable="false" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="0" name="processingTime" nillable="false" type="xsd:dateTime"/>
+        </sequence>
+      </complexType>
+      <complexType name="DailyAmount">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="day" nillable="false" type="xsd:dateTime"/>
+          <element maxOccurs="1" minOccurs="0" name="amount" nillable="false" type="xsd:double"/>
+        </sequence>
+      </complexType>
+      <complexType name="CountPerPerson">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="username" nillable="false" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="count" nillable="false" type="xsd:int"/>
+        </sequence>
+      </complexType>
+      <complexType name="DailyCountPerPerson">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="username" nillable="false" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="day" nillable="false" type="xsd:dateTime"/>
+          <element maxOccurs="1" minOccurs="0" name="count" nillable="false" type="xsd:int"/>
+        </sequence>
+      </complexType>
+      <complexType name="DailyCount">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="day" nillable="false" type="xsd:dateTime"/>
+          <element maxOccurs="1" minOccurs="0" name="count" nillable="false" type="xsd:int"/>
+        </sequence>
+      </complexType>
+      <complexType name="Performance">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="count" nillable="false" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="0" name="processingTime" nillable="false" type="xsd:dateTime"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_DailyAmountPerPerson">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="impl1:DailyAmountPerPerson"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_DeficiencyPerPerson">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="impl1:DeficiencyPerPerson"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_TimePerPerson">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="impl1:TimePerPerson"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_PerformancePerPerson">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="impl1:PerformancePerPerson"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_DailyAmount">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="impl1:DailyAmount"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_CountPerPerson">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="impl1:CountPerPerson"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_DailyCountPerPerson">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="impl1:DailyCountPerPerson"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_DailyCount">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="impl1:DailyCount"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_string">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_dateTime">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="xsd:dateTime"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_double">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="xsd:double"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_int">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="xsd:int"/>
+        </sequence>
+      </complexType>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="deficiencyResponse">
+    <wsdl:part name="parameters" element="impl:deficiencyResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="totalAmountOfDraftApplicationResponse">
+    <wsdl:part name="parameters" element="impl:totalAmountOfDraftApplicationResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="totalProcessingTimeByRoleRequest">
+    <wsdl:part name="parameters" element="impl:totalProcessingTimeByRole"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="totalProcessingTimeByPhaseResponse">
+    <wsdl:part name="parameters" element="impl:totalProcessingTimeByPhaseResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="totalCountOfDraftApplicationResponse">
+    <wsdl:part name="parameters" element="impl:totalCountOfDraftApplicationResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="totalAverageProcessingTimeRequest">
+    <wsdl:part name="parameters" element="impl:totalAverageProcessingTime"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="totalAverageProcessingTimeResponse">
+    <wsdl:part name="parameters" element="impl:totalAverageProcessingTimeResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="countOfApprovedApplicationRequest">
+    <wsdl:part name="parameters" element="impl:countOfApprovedApplication"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="processingTimeByPhaseResponse">
+    <wsdl:part name="parameters" element="impl:processingTimeByPhaseResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="amountOfDraftApplicationRequest">
+    <wsdl:part name="parameters" element="impl:amountOfDraftApplication"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="totalDeficiencyResponse">
+    <wsdl:part name="parameters" element="impl:totalDeficiencyResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="totalAmountOfDraftApplicationRequest">
+    <wsdl:part name="parameters" element="impl:totalAmountOfDraftApplication"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="averageProcessingTimeRequest">
+    <wsdl:part name="parameters" element="impl:averageProcessingTime"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="totalCountOfApprovedApplicationResponse">
+    <wsdl:part name="parameters" element="impl:totalCountOfApprovedApplicationResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="totalCountOfApprovedApplicationRequest">
+    <wsdl:part name="parameters" element="impl:totalCountOfApprovedApplication"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="countOfApprovedApplicationResponse">
+    <wsdl:part name="parameters" element="impl:countOfApprovedApplicationResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="countOfDraftApplicationResponse">
+    <wsdl:part name="parameters" element="impl:countOfDraftApplicationResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="totalProcessingTimeByPhaseRequest">
+    <wsdl:part name="parameters" element="impl:totalProcessingTimeByPhase"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="processingTimeByPhaseRequest">
+    <wsdl:part name="parameters" element="impl:processingTimeByPhase"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deficiencyRequest">
+    <wsdl:part name="parameters" element="impl:deficiency"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="processingTimeByRoleResponse">
+    <wsdl:part name="parameters" element="impl:processingTimeByRoleResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="totalDeficiencyRequest">
+    <wsdl:part name="parameters" element="impl:totalDeficiency"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="countOfDraftApplicationRequest">
+    <wsdl:part name="parameters" element="impl:countOfDraftApplication"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="averageProcessingTimeResponse">
+    <wsdl:part name="parameters" element="impl:averageProcessingTimeResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="totalProcessingTimeByRoleResponse">
+    <wsdl:part name="parameters" element="impl:totalProcessingTimeByRoleResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="processingTimeByRoleRequest">
+    <wsdl:part name="parameters" element="impl:processingTimeByRole"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="totalCountOfDraftApplicationRequest">
+    <wsdl:part name="parameters" element="impl:totalCountOfDraftApplication"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="amountOfDraftApplicationResponse">
+    <wsdl:part name="parameters" element="impl:amountOfDraftApplicationResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MainKpiWSPortType">
+    <wsdl:operation name="countOfApprovedApplication">
+      <wsdl:input name="countOfApprovedApplicationRequest" message="impl:countOfApprovedApplicationRequest"></wsdl:input>
+      <wsdl:output name="countOfApprovedApplicationResponse" message="impl:countOfApprovedApplicationResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="totalCountOfApprovedApplication">
+      <wsdl:input name="totalCountOfApprovedApplicationRequest" message="impl:totalCountOfApprovedApplicationRequest"></wsdl:input>
+      <wsdl:output name="totalCountOfApprovedApplicationResponse" message="impl:totalCountOfApprovedApplicationResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deficiency">
+      <wsdl:input name="deficiencyRequest" message="impl:deficiencyRequest"></wsdl:input>
+      <wsdl:output name="deficiencyResponse" message="impl:deficiencyResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="totalDeficiency">
+      <wsdl:input name="totalDeficiencyRequest" message="impl:totalDeficiencyRequest"></wsdl:input>
+      <wsdl:output name="totalDeficiencyResponse" message="impl:totalDeficiencyResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="amountOfDraftApplication">
+      <wsdl:input name="amountOfDraftApplicationRequest" message="impl:amountOfDraftApplicationRequest"></wsdl:input>
+      <wsdl:output name="amountOfDraftApplicationResponse" message="impl:amountOfDraftApplicationResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="totalAmountOfDraftApplication">
+      <wsdl:input name="totalAmountOfDraftApplicationRequest" message="impl:totalAmountOfDraftApplicationRequest"></wsdl:input>
+      <wsdl:output name="totalAmountOfDraftApplicationResponse" message="impl:totalAmountOfDraftApplicationResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="countOfDraftApplication">
+      <wsdl:input name="countOfDraftApplicationRequest" message="impl:countOfDraftApplicationRequest"></wsdl:input>
+      <wsdl:output name="countOfDraftApplicationResponse" message="impl:countOfDraftApplicationResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="totalCountOfDraftApplication">
+      <wsdl:input name="totalCountOfDraftApplicationRequest" message="impl:totalCountOfDraftApplicationRequest"></wsdl:input>
+      <wsdl:output name="totalCountOfDraftApplicationResponse" message="impl:totalCountOfDraftApplicationResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="averageProcessingTime">
+      <wsdl:input name="averageProcessingTimeRequest" message="impl:averageProcessingTimeRequest"></wsdl:input>
+      <wsdl:output name="averageProcessingTimeResponse" message="impl:averageProcessingTimeResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="totalAverageProcessingTime">
+      <wsdl:input name="totalAverageProcessingTimeRequest" message="impl:totalAverageProcessingTimeRequest"></wsdl:input>
+      <wsdl:output name="totalAverageProcessingTimeResponse" message="impl:totalAverageProcessingTimeResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processingTimeByRole">
+      <wsdl:input name="processingTimeByRoleRequest" message="impl:processingTimeByRoleRequest"></wsdl:input>
+      <wsdl:output name="processingTimeByRoleResponse" message="impl:processingTimeByRoleResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="totalProcessingTimeByRole">
+      <wsdl:input name="totalProcessingTimeByRoleRequest" message="impl:totalProcessingTimeByRoleRequest"></wsdl:input>
+      <wsdl:output name="totalProcessingTimeByRoleResponse" message="impl:totalProcessingTimeByRoleResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processingTimeByPhase">
+      <wsdl:input name="processingTimeByPhaseRequest" message="impl:processingTimeByPhaseRequest"></wsdl:input>
+      <wsdl:output name="processingTimeByPhaseResponse" message="impl:processingTimeByPhaseResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="totalProcessingTimeByPhase">
+      <wsdl:input name="totalProcessingTimeByPhaseRequest" message="impl:totalProcessingTimeByPhaseRequest"></wsdl:input>
+      <wsdl:output name="totalProcessingTimeByPhaseResponse" message="impl:totalProcessingTimeByPhaseResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MainKpiWSSoapSoapBinding" type="impl:MainKpiWSPortType">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="countOfApprovedApplication">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/countOfApprovedApplication"/>
+      <wsdl:input name="countOfApprovedApplicationRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="countOfApprovedApplicationResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="totalCountOfApprovedApplication">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/totalCountOfApprovedApplication"/>
+      <wsdl:input name="totalCountOfApprovedApplicationRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="totalCountOfApprovedApplicationResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deficiency">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/deficiency"/>
+      <wsdl:input name="deficiencyRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deficiencyResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="totalDeficiency">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/totalDeficiency"/>
+      <wsdl:input name="totalDeficiencyRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="totalDeficiencyResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="amountOfDraftApplication">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/amountOfDraftApplication"/>
+      <wsdl:input name="amountOfDraftApplicationRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="amountOfDraftApplicationResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="totalAmountOfDraftApplication">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/totalAmountOfDraftApplication"/>
+      <wsdl:input name="totalAmountOfDraftApplicationRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="totalAmountOfDraftApplicationResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="countOfDraftApplication">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/countOfDraftApplication"/>
+      <wsdl:input name="countOfDraftApplicationRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="countOfDraftApplicationResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="totalCountOfDraftApplication">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/totalCountOfDraftApplication"/>
+      <wsdl:input name="totalCountOfDraftApplicationRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="totalCountOfDraftApplicationResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="averageProcessingTime">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/averageProcessingTime"/>
+      <wsdl:input name="averageProcessingTimeRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="averageProcessingTimeResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="totalAverageProcessingTime">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/totalAverageProcessingTime"/>
+      <wsdl:input name="totalAverageProcessingTimeRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="totalAverageProcessingTimeResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processingTimeByRole">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/processingTimeByRole"/>
+      <wsdl:input name="processingTimeByRoleRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="processingTimeByRoleResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="totalProcessingTimeByRole">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/totalProcessingTimeByRole"/>
+      <wsdl:input name="totalProcessingTimeByRoleRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="totalProcessingTimeByRoleResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processingTimeByPhase">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/processingTimeByPhase"/>
+      <wsdl:input name="processingTimeByPhaseRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="processingTimeByPhaseResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="totalProcessingTimeByPhase">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/totalProcessingTimeByPhase"/>
+      <wsdl:input name="totalProcessingTimeByPhaseRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="totalProcessingTimeByPhaseResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MainKpiWS">
+    <wsdl:port name="MainKpiWSSoap" binding="impl:MainKpiWSSoapSoapBinding">
+      <wsdlsoap:address location="http://DDEUSBPM85.pss.local:9080/teamworks/webservices/DEUSBP/MainKpiWS.tws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://DDEUSBPM85.pss.local:9080/teamworks/webservices/DEUSBP/MainKpiWS.tws</con:endpoint><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSBP/MainKpiWS.tws</con:endpoint></con:endpoints><con:operation id="61475a77-fd5d-4f0a-a1a6-28f20569f5c6" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/amountOfDraftApplication" name="amountOfDraftApplication" bindingOperationName="amountOfDraftApplication" type="Request-Response" outputName="amountOfDraftApplicationResponse" inputName="amountOfDraftApplicationRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/></con:operation><con:operation id="62cbe045-ebe2-4afd-bf4d-936977a13382" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/averageProcessingTime" name="averageProcessingTime" bindingOperationName="averageProcessingTime" type="Request-Response" outputName="averageProcessingTimeResponse" inputName="averageProcessingTimeRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/></con:operation><con:operation id="ba953b01-97c4-4194-8cff-4e51a088bd7c" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/countOfApprovedApplication" name="countOfApprovedApplication" bindingOperationName="countOfApprovedApplication" type="Request-Response" outputName="countOfApprovedApplicationResponse" inputName="countOfApprovedApplicationRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/></con:operation><con:operation id="4f7a86f7-0533-43bb-8284-fe97c56f9d91" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/countOfDraftApplication" name="countOfDraftApplication" bindingOperationName="countOfDraftApplication" type="Request-Response" outputName="countOfDraftApplicationResponse" inputName="countOfDraftApplicationRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/></con:operation><con:operation id="4115a755-8d56-4181-9d4c-153efd53c17b" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/deficiency" name="deficiency" bindingOperationName="deficiency" type="Request-Response" outputName="deficiencyResponse" inputName="deficiencyRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/></con:operation><con:operation id="54ef4fd1-4430-4920-bd52-0b0902085b9c" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/processingTimeByPhase" name="processingTimeByPhase" bindingOperationName="processingTimeByPhase" type="Request-Response" outputName="processingTimeByPhaseResponse" inputName="processingTimeByPhaseRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/></con:operation><con:operation id="ea9e12f3-247a-41e1-83ff-bf2f47511be0" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/processingTimeByRole" name="processingTimeByRole" bindingOperationName="processingTimeByRole" type="Request-Response" outputName="processingTimeByRoleResponse" inputName="processingTimeByRoleRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/></con:operation><con:operation id="cbd7acf9-8a32-4ff8-9a3e-956ada94c745" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/totalAmountOfDraftApplication" name="totalAmountOfDraftApplication" bindingOperationName="totalAmountOfDraftApplication" type="Request-Response" outputName="totalAmountOfDraftApplicationResponse" inputName="totalAmountOfDraftApplicationRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/></con:operation><con:operation id="904a2110-6d5f-4259-864e-f3e5ea52c120" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/totalAverageProcessingTime" name="totalAverageProcessingTime" bindingOperationName="totalAverageProcessingTime" type="Request-Response" outputName="totalAverageProcessingTimeResponse" inputName="totalAverageProcessingTimeRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/></con:operation><con:operation id="a5fbb8a5-5917-447d-adb2-3795bbed3383" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/totalCountOfApprovedApplication" name="totalCountOfApprovedApplication" bindingOperationName="totalCountOfApprovedApplication" type="Request-Response" outputName="totalCountOfApprovedApplicationResponse" inputName="totalCountOfApprovedApplicationRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/></con:operation><con:operation id="f7a1891a-7ad4-4666-834d-35f49a5d4030" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/totalCountOfDraftApplication" name="totalCountOfDraftApplication" bindingOperationName="totalCountOfDraftApplication" type="Request-Response" outputName="totalCountOfDraftApplicationResponse" inputName="totalCountOfDraftApplicationRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/></con:operation><con:operation id="0695fab0-b804-446f-a95d-7868e2691a59" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/totalDeficiency" name="totalDeficiency" bindingOperationName="totalDeficiency" type="Request-Response" outputName="totalDeficiencyResponse" inputName="totalDeficiencyRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/></con:operation><con:operation id="36bc13c5-e0ec-4287-addd-c3af21d05c07" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/totalProcessingTimeByPhase" name="totalProcessingTimeByPhase" bindingOperationName="totalProcessingTimeByPhase" type="Request-Response" outputName="totalProcessingTimeByPhaseResponse" inputName="totalProcessingTimeByPhaseRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/></con:operation><con:operation id="27100733-b4a3-4ea0-97a1-d699e817b347" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/MainKpiWS.tws/totalProcessingTimeByRole" name="totalProcessingTimeByRole" bindingOperationName="totalProcessingTimeByRole" type="Request-Response" outputName="totalProcessingTimeByRoleResponse" inputName="totalProcessingTimeByRoleRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="0bbbfc5c-a8fa-4c60-9ce2-a7cf8bb14e8f" wsaVersion="NONE" name="ActivityKpiWSSoapSoapBinding" type="wsdl" bindingName="{http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws}ActivityKpiWSSoapSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://ddeusbpm85.pss.local:9080/teamworks/webservices/DEUSBP/ActivityKpiWS.tws?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://ddeusbpm85.pss.local:9080/teamworks/webservices/DEUSBP/ActivityKpiWS.tws?WSDL"><con:part><con:url>http://ddeusbpm85.pss.local:9080/teamworks/webservices/DEUSBP/ActivityKpiWS.tws?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws" xmlns:impl="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws" xmlns:impl1="http://xmlns.pss.sk/bpm/deus/api/v1/kpi" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:intf="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://xmlns.pss.sk/bpm/deus/api/v1/kpi"/>
+      <element name="newApplications">
+        <complexType>
+          <sequence>
+            <element name="dateFrom" type="xsd:dateTime"/>
+            <element name="dateTo" type="xsd:dateTime"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="newApplicationsResponse">
+        <complexType>
+          <sequence>
+            <element name="performanceByMonth" type="impl1:ArrayOf_PerformanceByMonth"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="deficientApplications">
+        <complexType>
+          <sequence>
+            <element name="dateFrom" type="xsd:dateTime"/>
+            <element name="dateTo" type="xsd:dateTime"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="deficientApplicationsResponse">
+        <complexType>
+          <sequence>
+            <element name="performanceByMonth" type="impl1:ArrayOf_PerformanceByMonth"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="processed">
+        <complexType>
+          <sequence>
+            <element name="dateFrom" type="xsd:dateTime"/>
+            <element name="dateTo" type="xsd:dateTime"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="processedResponse">
+        <complexType>
+          <sequence>
+            <element name="performanceByMonth" type="impl1:ArrayOf_PerformanceByMonth"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="approved">
+        <complexType>
+          <sequence>
+            <element name="dateFrom" type="xsd:dateTime"/>
+            <element name="dateTo" type="xsd:dateTime"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="approvedResponse">
+        <complexType>
+          <sequence>
+            <element name="performanceByMonth" type="impl1:ArrayOf_PerformanceByMonth"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="withCooperation">
+        <complexType>
+          <sequence>
+            <element name="group" type="xsd:string"/>
+            <element name="dateFrom" type="xsd:dateTime"/>
+            <element name="dateTo" type="xsd:dateTime"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="withCooperationResponse">
+        <complexType>
+          <sequence>
+            <element name="performanceByMonth" type="impl1:ArrayOf_PerformanceByMonth"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="waitingNewApplications">
+        <complexType>
+          <sequence>
+            <element name="dateFrom" type="xsd:dateTime"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="waitingNewApplicationsResponse">
+        <complexType>
+          <sequence>
+            <element name="waitingByDay" type="impl1:ArrayOf_CountByDay"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="waitingDeficientApplications">
+        <complexType>
+          <sequence>
+            <element name="dateFrom" type="xsd:dateTime"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="waitingDeficientApplicationsResponse">
+        <complexType>
+          <sequence>
+            <element name="waitingByDay" type="impl1:ArrayOf_CountByDay"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="waitingToProcessing">
+        <complexType>
+          <sequence>
+            <element name="dateFrom" type="xsd:dateTime"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="waitingToProcessingResponse">
+        <complexType>
+          <sequence>
+            <element name="waitingByDay" type="impl1:ArrayOf_CountByDay"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="waitingToApproval">
+        <complexType>
+          <sequence>
+            <element name="dateFrom" type="xsd:dateTime"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="waitingToApprovalResponse">
+        <complexType>
+          <sequence>
+            <element name="waitingByDay" type="impl1:ArrayOf_CountByDay"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="waitingToCooperation">
+        <complexType>
+          <sequence>
+            <element name="group" type="xsd:string"/>
+            <element name="dateFrom" type="xsd:dateTime"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="waitingToCooperationResponse">
+        <complexType>
+          <sequence>
+            <element name="waitingByDay" type="impl1:ArrayOf_CountByDay"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+    <schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.pss.sk/bpm/deus/api/v1/kpi" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws">
+        <!--Add URI of the schema document for the imported namespace using 'schemaLocation' attribute.-->
+      </import>
+      <complexType name="CountByDay">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="days" nillable="false" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="0" name="count" nillable="false" type="xsd:int"/>
+        </sequence>
+      </complexType>
+      <complexType name="PerformanceByMonth">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="month" nillable="false" type="xsd:dateTime"/>
+          <element maxOccurs="1" minOccurs="0" name="count" nillable="false" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="0" name="processingTime" nillable="false" type="xsd:dateTime"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_CountByDay">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="impl1:CountByDay"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_PerformanceByMonth">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="impl1:PerformanceByMonth"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_int">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="xsd:int"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_dateTime">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="xsd:dateTime"/>
+        </sequence>
+      </complexType>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="waitingToApprovalRequest">
+    <wsdl:part name="parameters" element="impl:waitingToApproval"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="waitingToProcessingRequest">
+    <wsdl:part name="parameters" element="impl:waitingToProcessing"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="withCooperationResponse">
+    <wsdl:part name="parameters" element="impl:withCooperationResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="processedRequest">
+    <wsdl:part name="parameters" element="impl:processed"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="withCooperationRequest">
+    <wsdl:part name="parameters" element="impl:withCooperation"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="waitingNewApplicationsResponse">
+    <wsdl:part name="parameters" element="impl:waitingNewApplicationsResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="newApplicationsResponse">
+    <wsdl:part name="parameters" element="impl:newApplicationsResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="waitingToProcessingResponse">
+    <wsdl:part name="parameters" element="impl:waitingToProcessingResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="approvedRequest">
+    <wsdl:part name="parameters" element="impl:approved"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deficientApplicationsRequest">
+    <wsdl:part name="parameters" element="impl:deficientApplications"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="processedResponse">
+    <wsdl:part name="parameters" element="impl:processedResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="newApplicationsRequest">
+    <wsdl:part name="parameters" element="impl:newApplications"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="approvedResponse">
+    <wsdl:part name="parameters" element="impl:approvedResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="waitingToApprovalResponse">
+    <wsdl:part name="parameters" element="impl:waitingToApprovalResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deficientApplicationsResponse">
+    <wsdl:part name="parameters" element="impl:deficientApplicationsResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="waitingToCooperationRequest">
+    <wsdl:part name="parameters" element="impl:waitingToCooperation"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="waitingNewApplicationsRequest">
+    <wsdl:part name="parameters" element="impl:waitingNewApplications"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="waitingToCooperationResponse">
+    <wsdl:part name="parameters" element="impl:waitingToCooperationResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="waitingDeficientApplicationsRequest">
+    <wsdl:part name="parameters" element="impl:waitingDeficientApplications"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="waitingDeficientApplicationsResponse">
+    <wsdl:part name="parameters" element="impl:waitingDeficientApplicationsResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ActivityKpiWSPortType">
+    <wsdl:operation name="newApplications">
+      <wsdl:input name="newApplicationsRequest" message="impl:newApplicationsRequest"></wsdl:input>
+      <wsdl:output name="newApplicationsResponse" message="impl:newApplicationsResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deficientApplications">
+      <wsdl:input name="deficientApplicationsRequest" message="impl:deficientApplicationsRequest"></wsdl:input>
+      <wsdl:output name="deficientApplicationsResponse" message="impl:deficientApplicationsResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processed">
+      <wsdl:input name="processedRequest" message="impl:processedRequest"></wsdl:input>
+      <wsdl:output name="processedResponse" message="impl:processedResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="approved">
+      <wsdl:input name="approvedRequest" message="impl:approvedRequest"></wsdl:input>
+      <wsdl:output name="approvedResponse" message="impl:approvedResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="withCooperation">
+      <wsdl:input name="withCooperationRequest" message="impl:withCooperationRequest"></wsdl:input>
+      <wsdl:output name="withCooperationResponse" message="impl:withCooperationResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="waitingNewApplications">
+      <wsdl:input name="waitingNewApplicationsRequest" message="impl:waitingNewApplicationsRequest"></wsdl:input>
+      <wsdl:output name="waitingNewApplicationsResponse" message="impl:waitingNewApplicationsResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="waitingDeficientApplications">
+      <wsdl:input name="waitingDeficientApplicationsRequest" message="impl:waitingDeficientApplicationsRequest"></wsdl:input>
+      <wsdl:output name="waitingDeficientApplicationsResponse" message="impl:waitingDeficientApplicationsResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="waitingToProcessing">
+      <wsdl:input name="waitingToProcessingRequest" message="impl:waitingToProcessingRequest"></wsdl:input>
+      <wsdl:output name="waitingToProcessingResponse" message="impl:waitingToProcessingResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="waitingToApproval">
+      <wsdl:input name="waitingToApprovalRequest" message="impl:waitingToApprovalRequest"></wsdl:input>
+      <wsdl:output name="waitingToApprovalResponse" message="impl:waitingToApprovalResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="waitingToCooperation">
+      <wsdl:input name="waitingToCooperationRequest" message="impl:waitingToCooperationRequest"></wsdl:input>
+      <wsdl:output name="waitingToCooperationResponse" message="impl:waitingToCooperationResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ActivityKpiWSSoapSoapBinding" type="impl:ActivityKpiWSPortType">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="newApplications">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws/newApplications"/>
+      <wsdl:input name="newApplicationsRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="newApplicationsResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deficientApplications">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws/deficientApplications"/>
+      <wsdl:input name="deficientApplicationsRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deficientApplicationsResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processed">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws/processed"/>
+      <wsdl:input name="processedRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="processedResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="approved">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws/approved"/>
+      <wsdl:input name="approvedRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="approvedResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="withCooperation">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws/withCooperation"/>
+      <wsdl:input name="withCooperationRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="withCooperationResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="waitingNewApplications">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws/waitingNewApplications"/>
+      <wsdl:input name="waitingNewApplicationsRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="waitingNewApplicationsResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="waitingDeficientApplications">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws/waitingDeficientApplications"/>
+      <wsdl:input name="waitingDeficientApplicationsRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="waitingDeficientApplicationsResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="waitingToProcessing">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws/waitingToProcessing"/>
+      <wsdl:input name="waitingToProcessingRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="waitingToProcessingResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="waitingToApproval">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws/waitingToApproval"/>
+      <wsdl:input name="waitingToApprovalRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="waitingToApprovalResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="waitingToCooperation">
+      <wsdlsoap:operation soapAction="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws/waitingToCooperation"/>
+      <wsdl:input name="waitingToCooperationRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="waitingToCooperationResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ActivityKpiWS">
+    <wsdl:port name="ActivityKpiWSSoap" binding="impl:ActivityKpiWSSoapSoapBinding">
+      <wsdlsoap:address location="http://DDEUSBPM85.pss.local:9080/teamworks/webservices/DEUSBP/ActivityKpiWS.tws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://DDEUSBPM85.pss.local:9080/teamworks/webservices/DEUSBP/ActivityKpiWS.tws</con:endpoint><con:endpoint>http://EXTSOFTEC6.pss.local:9081/teamworks/webservices/DEUSBP/ActivityKpiWS.tws</con:endpoint></con:endpoints><con:operation id="6114593a-65b2-4336-abd2-d3051f060d1e" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws/approved" name="approved" bindingOperationName="approved" type="Request-Response" outputName="approvedResponse" inputName="approvedRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2f75a39a-efe8-4306-9015-e484fb4da095" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DDEUSBPM85.pss.local:9080/teamworks/webservices/DEUSBP/ActivityKpiWS.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:act="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <act:approved>\r
+         <act:dateFrom>2017-01-01</act:dateFrom>\r
+         <act:dateTo>2017-01-31</act:dateTo>\r
+      </act:approved>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws/approved"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="9c029ec9-a3cd-45ac-b587-af5e4b247087" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws/deficientApplications" name="deficientApplications" bindingOperationName="deficientApplications" type="Request-Response" outputName="deficientApplicationsResponse" inputName="deficientApplicationsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/></con:operation><con:operation id="56d24cc9-f72b-4542-935d-de41d9b22cd8" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws/newApplications" name="newApplications" bindingOperationName="newApplications" type="Request-Response" outputName="newApplicationsResponse" inputName="newApplicationsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/></con:operation><con:operation id="3847d2c5-3d3b-4004-afbc-d95379516632" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws/processed" name="processed" bindingOperationName="processed" type="Request-Response" outputName="processedResponse" inputName="processedRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7d6ca3f9-a87e-48da-95c1-bacd643a655e" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DDEUSBPM85.pss.local:9080/teamworks/webservices/DEUSBP/ActivityKpiWS.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:act="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <act:processed>\r
+         <act:dateFrom>2017-01-01</act:dateFrom>\r
+         <act:dateTo>2017-01-31</act:dateTo>\r
+      </act:processed>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws/processed"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="dcedda26-60a9-478e-87d0-d96d704d7948" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws/waitingDeficientApplications" name="waitingDeficientApplications" bindingOperationName="waitingDeficientApplications" type="Request-Response" outputName="waitingDeficientApplicationsResponse" inputName="waitingDeficientApplicationsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/></con:operation><con:operation id="6a385420-5b1e-46a6-8ea9-9c4892722e0d" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws/waitingNewApplications" name="waitingNewApplications" bindingOperationName="waitingNewApplications" type="Request-Response" outputName="waitingNewApplicationsResponse" inputName="waitingNewApplicationsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/></con:operation><con:operation id="d06a23a4-020e-4e43-9a92-b9ae14030561" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws/waitingToApproval" name="waitingToApproval" bindingOperationName="waitingToApproval" type="Request-Response" outputName="waitingToApprovalResponse" inputName="waitingToApprovalRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/></con:operation><con:operation id="99705dfb-e700-4820-9a6c-96ca257315b4" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws/waitingToCooperation" name="waitingToCooperation" bindingOperationName="waitingToCooperation" type="Request-Response" outputName="waitingToCooperationResponse" inputName="waitingToCooperationRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/></con:operation><con:operation id="7a738377-eaa9-445f-968a-f37f33e0609a" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws/waitingToProcessing" name="waitingToProcessing" bindingOperationName="waitingToProcessing" type="Request-Response" outputName="waitingToProcessingResponse" inputName="waitingToProcessingRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/></con:operation><con:operation id="b63fb9af-7f3b-499a-bd3a-f9efe10ecc7e" isOneWay="false" action="http://xmlns.pss.sk/bpm/deus/app/v1/ActivityKpiWS.tws/withCooperation" name="withCooperation" bindingOperationName="withCooperation" type="Request-Response" outputName="withCooperationResponse" inputName="withCooperationRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/></con:operation></con:interface><con:testSuite id="c56773e4-e41d-4cea-9e46-c2a62a7b7088" name="Dev TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="0dc8ca41-33c3-4497-b06f-efdc88e29f82" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase Manualne sprocesovanie" searchProperties="true"><con:settings/><con:testStep type="request" id="dcd5761b-10c2-4969-9551-3a9d7ef88987" name="start"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DeusProcessWSSoapSoapBinding</con:interface><con:operation>start</con:operation><con:request name="start" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="2902efed-69d6-431a-9b02-fdd429c4e9bb"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#bpm.endpoint}/teamworks/webservices/DEUSBP/DeusProcessWS.tws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:deus="http://xmlns.pss.sk/bpm/deus/app/v1/DeusProcessWS">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <deus:start>\r
